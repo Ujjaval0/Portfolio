@@ -1,5 +1,5 @@
 .experience-item {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .experience-date {
@@ -19,14 +19,14 @@
     font-size: 16px;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .experience-description {
     font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .experience-tags {
