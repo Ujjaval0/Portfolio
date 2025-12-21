@@ -11,32 +11,106 @@ function App() {
 
   const projects: ProjectData[] = [
     {
-      title: "AirBnB listings price prediction",
-      tags: ['Python', 'SQL', 'Matlab'],
-      description: "Prediction of AirBnB prices growth Milan (Italy) to provide insights on the areas that might soon get more opportunities to monetise with short stays.",
-      imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800",
-      fullDetails: "The algorithm takes into account seasonality, home characteristics, economic factors and stats on existing properties. Developed using a Random Forest Regressor and optimized with GridSearchCV to achieve a MAPE of 12%."
+      title: "EV Market & Sales Performance Dashboard",
+      category: "PowerBI Project",
+      domain: "Automotive",
+      tags: ['Excel', 'Power Query', 'MS PowerPoint'],
+      description: "This challenge focused on uncovering insights for AtliQ Motors, which holds a 25% market share in North America but under 2% in India. Led by Bruce Haryali, we set out to decode the Indian EV market.",
+      imageUrl: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800",
+      objective: [
+        "Grasp the current landscape of the EV market in India.",
+        "Spot key trends and identify growth opportunities.",
+        "Break down sales data by state, manufacturer, and vehicle category.",
+        "Deliver actionable insights and strategies to boost AtliQ Motors' market share."
+      ],
+      takeaways: [
+        {
+          title: "Top EV Makers (FY 2023 & 2024)",
+          items: ["OLA Electric: Leading the pack for two consecutive years, while smaller players like Jitendra and Battre Electric are struggling to keep up."]
+        },
+        {
+          title: "Top States by EV Penetration (FY 2024)",
+          items: ["Goa: Dominates in 2-wheeler adoption!", "Kerala: Excelling in both 2-wheelers and 4-wheelers. 🚀"]
+        },
+        {
+          title: "Quarterly Trends for Leading 4-Wheeler EV Makers",
+          items: ["Tata Motors: Outpacing competitors with the highest quarterly growth. 🔥"]
+        }
+      ],
+      dashboardUrl: "https://app.powerbi.com/view?r=eyJrIjoiMmExMzQyNTgtNmYyNi00NzY1LTljNzYtZDYxMjM1NzI1MzJiIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQzYzQ3ZGUzMzZhZiJ9",
+      engagementLink: "https://www.linkedin.com/posts/alexandermarks_ev-market-analysis-activity-1234567890"
     },
     {
       title: "Spotify visual data art",
-      tags: ['Python', 'Javascript', 'SQL'],
+      category: "Python Project",
+      domain: "Entertainment",
+      tags: ['Python', 'Javascript', 'SQL', 'Three.js'],
       description: "Inspired by Windows Music Player animations, this algorithm creates cool animations for every music track on earth.",
       imageUrl: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=800",
-      fullDetails: "The animations are tailored to the melody as well as the text, with the aim to create engaging experiences for users. Built with Three.js for 3D rendering and Spotify API for real-time track analysis."
+      objective: [
+        "Create real-time visual representations of musical data.",
+        "Enhance user engagement through immersive 3D environments.",
+        "Analyze track metrics like tempo, energy, and danceability."
+      ],
+      takeaways: [
+        {
+          title: "Real-time Analysis",
+          items: ["Achieved sub-100ms latency in audio feature extraction and visual synchronization."]
+        },
+        {
+          title: "User Interaction",
+          items: ["Increased average listening time by 15% during beta testing with interactive visuals."]
+        }
+      ],
+      dashboardUrl: "#",
+      engagementLink: "#"
+    },
+    {
+      title: "AirBnB listings price prediction",
+      category: "Machine Learning",
+      domain: "Real Estate",
+      tags: ['Python', 'SQL', 'Matlab', 'Scikit-learn'],
+      description: "Prediction of AirBnB prices growth Milan (Italy) to provide insights on the areas that might soon get more opportunities to monetise with short stays.",
+      imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800",
+      objective: [
+        "Identify high-potential investment areas in Milan.",
+        "Predict price fluctuations based on seasonality and events.",
+        "Optimize pricing strategies for hosts to maximize revenue."
+      ],
+      takeaways: [
+        {
+          title: "Model Accuracy",
+          items: ["Achieved a MAPE of 12% using a Random Forest Regressor optimized with GridSearchCV."]
+        },
+        {
+          title: "Impact Factors",
+          items: ["Identified that proximity to metro stations and specific amenities (like high-speed Wi-Fi) are the strongest price drivers."]
+        }
+      ],
+      dashboardUrl: "#"
     },
     {
       title: "Credit Card Fraud Detection",
-      tags: ['Python', 'PySpark', 'Scikit-learn'],
+      category: "Data Science",
+      domain: "Finance",
+      tags: ['Python', 'PySpark', 'Scikit-learn', 'XGBoost'],
       description: "A machine learning pipeline to detect fraudulent transactions in real-time, handling highly imbalanced datasets.",
       imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800",
-      fullDetails: "Implemented using XGBoost and SMOTE for oversampling. The model achieved a Recall of 95% on fraudulent cases while maintaining high precision. Integrated with a Kafka pipeline for stream processing."
-    },
-    {
-      title: "Customer Segmentation Analysis",
-      tags: ['R', 'Tableau', 'K-Means'],
-      description: "Unsupervised learning approach to group customers based on purchasing behavior for targeted marketing campaigns.",
-      imageUrl: "https://images.unsplash.com/photo-1551288049-bbbda5366a71?auto=format&fit=crop&q=80&w=800",
-      fullDetails: "Analyzed over 500k transactions. Used Elbow method and Silhouette score to determine optimal clusters. Identified 4 key segments: VIP, At-Risk, New, and Occasional, leading to a 20% increase in campaign ROI."
+      objective: [
+        "Minimize false positives to improve customer experience.",
+        "Detect fraudulent patterns in high-velocity transaction streams.",
+        "Implement a scalable solution using big data technologies."
+      ],
+      takeaways: [
+        {
+          title: "Model Performance",
+          items: ["Achieved a Recall of 95% on fraudulent cases using XGBoost and SMOTE."]
+        },
+        {
+          title: "Real-time Speed",
+          items: ["Integration with Kafka allowed for transaction scoring in under 50ms."]
+        }
+      ]
     }
   ];
 

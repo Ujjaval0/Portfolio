@@ -1,15 +1,10 @@
 import React from 'react';
-import { X } from 'lucide-react';
+import { X, ExternalLink, Linkedin } from 'lucide-react';
+import type { ProjectData } from '../types';
 import './ProjectModal.css';
 
 interface ProjectModalProps {
-    project: {
-        title: string;
-        tags: string[];
-        description: string;
-        imageUrl: string;
-        fullDetails?: string;
-    } | null;
+    project: ProjectData | null;
     onClose: () => void;
 }
 
@@ -20,27 +15,83 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
         <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className="modal-close" onClick={onClose}>
-                    <X size={24} />
+                    <X size={20} />
                 </button>
-                <div className="modal-image-wrapper">
-                    <img src={project.imageUrl} alt={project.title} className="modal-image" />
-                </div>
-                <div className="modal-body">
-                    <h2 className="modal-title">{project.title}</h2>
-                    <div className="modal-tags">
-                        {project.tags.map((tag, index) => (
-                            <span key={index} className="modal-tag">{tag}</span>
-                        ))}
-                    </div>
-                    <div className="modal-description">
-                        <p>{project.description}</p>
-                        {project.fullDetails && (
-                            <div className="modal-full-details">
-                                <h3>Key Insights & Methodology</h3>
-                                <p>{project.fullDetails}</p>
-                            </div>
+
+                <div className="modal-header-grid">
+                    <div className="modal-header-left">
+                        <div className="category-badge">{project.category}</div>
+                        <h2 className="modal-title">{project.title}</h2>
+                        <div className="domain-info">
+                            <span className="domain-label">Domain/Function:</span>
+                            <span className="domain-value">{project.domain}</span>
+                        </div>
+                        <p className="modal-top-description">{project.description}</p>
+
+                        {project.engagementLink && (
+                            <a href={project.engagementLink} target="_blank" rel="noopener noreferrer" className="engagement-btn">
+                                <div className="engagement-icon">
+                                    <Linkedin size={18} fill="currentColor" />
+                                </div>
+                                <span className="engagement-text">View Project Engagement</span>
+                            </a>
                         )}
                     </div>
+
+                    <div className="modal-header-right">
+                        <div className="gallery-container">
+                            <img src={project.imageUrl} alt={project.title} className="gallery-image" />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="modal-scroll-area">
+                    <div className="tools-section">
+                        <h3 className="sub-section-title">Other Tools</h3>
+                        <div className="tools-grid">
+                            {project.tags.map((tag, index) => (
+                                <span key={index} className="tool-badge">{tag}</span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="details-section">
+                        <h2 className="details-header">Project Details</h2>
+
+                        <div className="detail-item">
+                            <h4 className="detail-subtitle">🏎️ Objective:</h4>
+                            <ul className="detail-list">
+                                {project.objective.map((obj, i) => (
+                                    <li key={i}>{obj}</li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="detail-item">
+                            <h4 className="detail-subtitle">🔍 Key Takeaways:</h4>
+                            {project.takeaways.map((takeaway, i) => (
+                                <div key={i} className="takeaway-group">
+                                    <h5 className="takeaway-title">🏆 {takeaway.title}:</h5>
+                                    <ul className="detail-list">
+                                        {takeaway.items.map((item, j) => (
+                                            <li key={j}>{item}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {project.dashboardUrl && (
+                        <div className="dashboard-section">
+                            <h2 className="details-header">Live Interactive Dashboard</h2>
+                            <div className="dashboard-placeholder">
+                                <ExternalLink size={32} />
+                                <p>Interactive Dashboard Preview (Simulation)</p>
+                                <a href={project.dashboardUrl} target="_blank" rel="noopener noreferrer" className="view-link">Open full dashboard</a>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

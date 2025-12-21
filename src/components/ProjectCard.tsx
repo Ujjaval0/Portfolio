@@ -6,8 +6,8 @@ interface ProjectCardProps extends ProjectData {
     onReadMore: (project: ProjectData) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, tags, description, imageUrl, fullDetails, onReadMore }) => {
-    const projectData = { title, tags, description, imageUrl, fullDetails };
+const ProjectCard: React.FC<ProjectCardProps> = (props) => {
+    const { title, tags, description, imageUrl, onReadMore } = props;
 
     return (
         <div className="project-card">
@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, tags, description, ima
                 <p className="project-description">{description}</p>
                 <button
                     className="read-more"
-                    onClick={() => onReadMore(projectData)}
+                    onClick={() => onReadMore(props)}
                     style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                 >
                     Read more →
