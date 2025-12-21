@@ -1,0 +1,127 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: var(--bg-sidebar);
+    height: 100%;
+}
+
+.profile-image-container {
+    width: 160px;
+    height: 160px;
+    min-width: 160px;
+    /* Prevent shrinking */
+    min-height: 160px;
+    /* Prevent shrinking */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 32px;
+    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+    /* Critical for flex containers */
+    aspect-ratio: 1;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    margin-bottom: 24px;
+}
+
+.profile-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.profile-title {
+    font-size: 16px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.profile-location {
+    font-size: 14px;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+}
+
+.social-link {
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.social-link:hover {
+    color: var(--text-primary);
+}
+
+.email-me-pill {
+    padding: 4px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 9999px;
+    background: transparent;
+    font-size: 13px;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.email-me-pill:hover {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.sidebar-section {
+    margin-bottom: 40px;
+}
+
+.sidebar-header {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    text-transform: capitalize;
+    margin-bottom: 16px;
+}
+
+.about-text {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-badge {
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.skill-badge.blue {
+    background-color: #eff6ff;
+    color: #2563eb;
+}

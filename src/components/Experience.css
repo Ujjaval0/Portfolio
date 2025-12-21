@@ -1,0 +1,45 @@
+.experience-item {
+    margin-bottom: 40px;
+}
+
+.experience-date {
+    font-size: 14px;
+    color: var(--text-tertiary);
+    margin-bottom: 4px;
+}
+
+.job-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.company-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.experience-description {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.experience-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: #9ca3af;
+    background-color: #f3f4f6;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
