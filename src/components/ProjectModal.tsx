@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, ExternalLink, Linkedin } from 'lucide-react';
+import { X, ExternalLink } from 'lucide-react';
 import type { ProjectData } from '../types';
 import './ProjectModal.css';
 
@@ -28,14 +28,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                         </div>
                         <p className="modal-top-description">{project.description}</p>
 
-                        {project.engagementLink && (
-                            <a href={project.engagementLink} target="_blank" rel="noopener noreferrer" className="engagement-btn">
-                                <div className="engagement-icon">
-                                    <Linkedin size={18} fill="currentColor" />
-                                </div>
-                                <span className="engagement-text">View Project Engagement</span>
-                            </a>
-                        )}
+
                     </div>
 
                     <div className="modal-header-right">

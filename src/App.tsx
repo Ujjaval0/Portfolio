@@ -137,21 +137,27 @@ function App() {
         <section id="experience" className="experience-section">
           <h2 className="section-header">Experience</h2>
           <ExperienceItem
-            date="Mar 2022 - now"
-            title="Data Analyst at Amazon"
+            date="2024 - 2025"
+            title="Freelancer at Soul AI"
             company=""
-            description="Leading the development and implementation of data analytics strategies that support business goals. Managing a team of data analysts to ensure data accuracy, completeness, and integrity. Providing insights and recommendations to senior management based on analysis of customer behaviour, product performance, and other key metrics."
-            tags={['SQL', 'Python', 'R', 'Excel', 'Tableau']}
+            description="Conducted rigorous evaluation of Large Language Models (LLMs) to enhance output quality and alignment. Performed detailed side-by-side comparisons, analyzing response effectiveness based on complex criteria and prompt variations. Applied advanced prompt engineering techniques to identify model strengths and weaknesses, contributing high-quality data essential for model fine-tuning and optimization."
+            tags={['LLM Evaluation', 'Prompt Engineering', 'Model Comparison', 'AI Training', 'Data Analysis']}
           />
         </section>
 
         <section id="education" className="education-section">
           <h2 className="section-header">Education</h2>
           <div className="education-item">
-            <p className="education-year">2022</p>
-            <h3 className="education-degree">Quantitative Economics, Master of Science, University of London</h3>
+            <h3 className="education-degree">Data Analyst (Ducat)</h3>
             <p className="education-summary">
-              High quality quantitative training in economics, a focus on advanced research methods and a supervised research thesis. Rigorous grounding in using mathematical and statistical methods to derive, test and apply formal economic models
+              Completed an intensive Data Analytics program covering the full data pipeline. Mastered statistical analysis, data wrangling, and visualization techniques using Python (Pandas, NumPy), SQL, and Power BI to derive actionable business insights from complex datasets.
+            </p>
+          </div>
+
+          <div className="education-item">
+            <h3 className="education-degree">Bachelor of Computer Applications (BCA)</h3>
+            <p className="education-summary">
+              Focused on core technologies including Python, SQL, and database management. Developed strong analytical capabilities alongside key soft skills such as problem-solving, critical thinking, and effective communication.
             </p>
           </div>
         </section>

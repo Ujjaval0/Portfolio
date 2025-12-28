@@ -112,33 +112,7 @@
     margin-bottom: 32px;
 }
 
-.engagement-btn {
-    align-self: flex-start;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background-color: #eff6ff;
-    color: #2563eb;
-    padding: 8px 16px;
-    border-radius: 9999px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: background-color 0.2s;
-}
 
-.engagement-btn:hover {
-    background-color: #dbeafe;
-}
-
-.engagement-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #2563eb;
-}
-
-/* Gallery Section */
 .modal-header-right {
     display: flex;
     align-items: center;
