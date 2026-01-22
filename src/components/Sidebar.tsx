@@ -51,11 +51,9 @@ const Sidebar: React.FC = () => {
                     <span className="skill-badge blue">LLM's</span>
                     <span className="skill-badge blue">Excel</span>
                     <span className="skill-badge blue">Prompt Engineering</span>
-                    <span className="skill-badge blue">Statistical modelling</span>
-                    <span className="skill-badge blue">Sampling techniques</span>
                 </div>
             </div>
-        </aside>
+        </aside >
     );
 };
 

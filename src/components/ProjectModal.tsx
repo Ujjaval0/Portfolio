@@ -18,29 +18,26 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                     <X size={20} />
                 </button>
 
-                <div className="modal-header-grid">
-                    <div className="modal-header-left">
-                        <div className="category-badge">{project.category}</div>
-                        <h2 className="modal-title">{project.title}</h2>
-                        <div className="domain-info">
-                            <span className="domain-label">Domain/Function:</span>
-                            <span className="domain-value">{project.domain}</span>
-                        </div>
-                        <p className="modal-top-description">{project.description}</p>
-
-
-                    </div>
-
-                    <div className="modal-header-right">
-                        <div className="gallery-container">
-                            <img src={project.imageUrl} alt={project.title} className="gallery-image" />
-                        </div>
-                    </div>
-                </div>
-
                 <div className="modal-scroll-area">
+                    <div className="modal-header-grid">
+                        <div className="modal-header-left">
+                            <div className="category-badge">{project.category}</div>
+                            <h2 className="modal-title">{project.title}</h2>
+                            <div className="domain-info">
+                                <span className="domain-label">Domain/Function:</span>
+                                <span className="domain-value">{project.domain}</span>
+                            </div>
+                            <p className="modal-top-description">{project.description}</p>
+                        </div>
+
+                        <div className="modal-header-right">
+                            <div className="gallery-container">
+                                <img src={project.imageUrl} alt={project.title} className="gallery-image" />
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="tools-section">
-                        <h3 className="sub-section-title">Other Tools</h3>
                         <div className="tools-grid">
                             {project.tags.map((tag, index) => (
                                 <span key={index} className="tool-badge">{tag}</span>

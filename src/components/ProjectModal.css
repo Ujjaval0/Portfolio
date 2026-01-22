@@ -60,9 +60,9 @@
 .modal-header-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    padding: 40px;
+    padding: 60px 40px 40px 40px;
     gap: 40px;
-    border-bottom: 3px solid #f3f4f6;
+    border-bottom: 1px solid #f3f4f6;
 }
 
 .modal-header-left {
@@ -137,12 +137,21 @@
 
 /* Scrollable Content */
 .modal-scroll-area {
-    padding: 40px;
+    padding: 0;
     overflow-y: auto;
     flex: 1;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     /* Smooth scroll for iOS */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.modal-scroll-area::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, and Opera */
 }
 
 .sub-section-title {
@@ -153,7 +162,8 @@
 }
 
 .tools-section {
-    margin-bottom: 40px;
+    padding: 40px 40px 0 40px;
+    margin-bottom: 30px;
 }
 
 .tools-grid {
@@ -173,6 +183,7 @@
 
 /* Details Section */
 .details-section {
+    padding: 0 40px;
     margin-bottom: 48px;
 }
 
@@ -230,7 +241,7 @@
 
 /* Dashboard Section */
 .dashboard-section {
-    padding-top: 40px;
+    padding: 40px;
     border-top: 1px solid #f3f4f6;
 }
 
