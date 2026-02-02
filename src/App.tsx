@@ -3,11 +3,13 @@ import Sidebar from './components/Sidebar';
 import ProjectCard from './components/ProjectCard';
 import ExperienceItem from './components/ExperienceItem';
 import ProjectModal from './components/ProjectModal';
+import ResumeModal from './components/ResumeModal';
 import type { ProjectData } from './types';
 import './App.css';
 
 function App() {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   const projects: ProjectData[] = [
     {
@@ -117,7 +119,7 @@ function App() {
   return (
     <div className="layout-container">
       <div className="sidebar-wrapper">
-        <Sidebar />
+        <Sidebar onOpenResume={() => setIsResumeOpen(true)} />
       </div>
 
       <main className="main-content">
@@ -166,6 +168,11 @@ function App() {
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
+      />
+
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
       />
     </div>
   );

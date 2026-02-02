@@ -57,6 +57,13 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 32px;
+    width: 100%;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
 .social-link {
@@ -87,6 +94,32 @@
 .email-me-pill:hover {
     background-color: #f3f4f6;
     border-color: #9ca3af;
+}
+
+.resume-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border: 1px solid #2563eb;
+    border-radius: 9999px;
+    background: #2563eb;
+    font-size: 13px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+}
+
+.resume-button:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.resume-button:active {
+    transform: translateY(0);
 }
 
 .sidebar-section {

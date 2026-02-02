@@ -1,0 +1,116 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(4px);
+}
+
+.resume-modal-content.seamless {
+    background: #ffffff;
+    width: 90%;
+    max-width: 850px;
+    height: 90vh;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.resume-floating-controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    z-index: 2001;
+}
+
+.download-button-floating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2563eb;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.download-button-floating:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.5);
+}
+
+.close-button-floating {
+    background: white;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #374151;
+    transition: all 0.2s;
+}
+
+.close-button-floating:hover {
+    background: #f3f4f6;
+    color: #000;
+    transform: scale(1.05);
+}
+
+.resume-body-seamless {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.resume-iframe-seamless {
+    width: calc(100% + 17px);
+    /* Add extra width to push scrollbar out of view */
+    height: 100%;
+    border: none;
+    display: block;
+    background: #ffffff;
+    margin-right: -17px;
+    /* Offset to hide scrollbar */
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* Additional scrollbar hiding for all browsers */
+.resume-iframe-seamless::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.resume-iframe-seamless {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+@media (max-width: 640px) {
+    .resume-modal-content.seamless {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
