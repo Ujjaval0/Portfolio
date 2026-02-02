@@ -1,7 +1,5 @@
 import React from 'react';
 import { Linkedin, Github, FileText } from 'lucide-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faKaggle, faMedium } from '@fortawesome/free-brands-svg-icons';
 import './Sidebar.css';
 import profileImage from '../assets/chatgpt_profile_image.png';
 
