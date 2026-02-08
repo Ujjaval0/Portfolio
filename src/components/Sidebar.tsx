@@ -55,7 +55,6 @@ const Sidebar: React.FC<SidebarProps> = ({ onOpenResume }) => {
                     <span className="skill-badge blue">Statistical Analysis</span>
                     <span className="skill-badge blue">Data Visualization</span>
                     <span className="skill-badge blue">Data Cleaning</span>
-                    <span className="skill-badge blue">Prompt Engineering</span>
                 </div>
             </div>
         </aside >

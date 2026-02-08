@@ -10,23 +10,38 @@
     width: 140px;
     height: 140px;
     min-width: 140px;
-    /* Prevent shrinking */
     min-height: 140px;
-    /* Prevent shrinking */
     border-radius: 50%;
     overflow: hidden;
-    margin-bottom: 20px;
-    border: 3px solid white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        0 10px 15px -3px rgba(0, 0, 0, 0.05);
     flex-shrink: 0;
-    /* Critical for flex containers */
-    aspect-ratio: 1;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #f9fafb;
+    cursor: pointer;
+}
+
+.profile-image-container:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 .profile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.profile-image-container:hover .profile-image {
+    transform: scale(1.05);
 }
 
 .profile-info {

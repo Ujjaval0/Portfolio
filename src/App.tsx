@@ -4,6 +4,7 @@ import ProjectCard from './components/ProjectCard';
 import ExperienceItem from './components/ExperienceItem';
 import ProjectModal from './components/ProjectModal';
 import ResumeModal from './components/ResumeModal';
+import AIEnhancedWorkflow from './components/AIEnhancedWorkflow';
 import type { ProjectData } from './types';
 import './App.css';
 
@@ -89,7 +90,8 @@ function App() {
           items: ["Identified that proximity to metro stations and specific amenities (like high-speed Wi-Fi) are the strongest price drivers."]
         }
       ],
-      dashboardUrl: "#"
+      dashboardUrl: "#",
+      engagementLink: "https://github.com/Ujjaval0/airbnb-price-prediction"
     },
     {
       title: "Credit Card Fraud Detection",
@@ -112,7 +114,8 @@ function App() {
           title: "Real-time Speed",
           items: ["Integration with Kafka allowed for transaction scoring in under 50ms."]
         }
-      ]
+      ],
+      engagementLink: "https://github.com/Ujjaval0/fraud-detection"
     }
   ];
 
@@ -135,6 +138,8 @@ function App() {
             ))}
           </div>
         </section>
+
+        <AIEnhancedWorkflow />
 
         <section id="experience" className="experience-section">
           <h2 className="section-header">Experience</h2>
