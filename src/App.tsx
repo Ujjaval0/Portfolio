@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import Sidebar from './components/Sidebar';
-import ProjectCard from './components/ProjectCard';
-import ExperienceItem from './components/ExperienceItem';
-import ProjectModal from './components/ProjectModal';
-import ResumeModal from './components/ResumeModal';
-import AIEnhancedWorkflow from './components/AIEnhancedWorkflow';
+import { useState, lazy, Suspense } from 'react';
 import type { ProjectData } from './types';
 import './App.css';
+
+// Lazy load components for better performance
+const Sidebar = lazy(() => import('./components/Sidebar'));
+const ProjectCard = lazy(() => import('./components/ProjectCard'));
+const ExperienceItem = lazy(() => import('./components/ExperienceItem'));
+const ProjectModal = lazy(() => import('./components/ProjectModal'));
+const ResumeModal = lazy(() => import('./components/ResumeModal'));
+const AIEnhancedWorkflow = lazy(() => import('./components/AIEnhancedWorkflow'));
 
 function App() {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
@@ -120,66 +122,74 @@ function App() {
   ];
 
   return (
-    <div className="layout-container">
-      <div className="sidebar-wrapper">
-        <Sidebar onOpenResume={() => setIsResumeOpen(true)} />
-      </div>
+    <Suspense fallback={<div className="min-h-screen bg-white dark:bg-zinc-900" />}>
+      <div className="layout-container">
+        <div className="sidebar-wrapper">
+          <Sidebar onOpenResume={() => setIsResumeOpen(true)} />
+        </div>
 
-      <main className="main-content">
-        <section id="projects" className="projects-section">
-          <h2 className="section-header">Projects</h2>
-          <div className="projects-grid">
-            {projects.map((project, index) => (
-              <ProjectCard
-                key={index}
-                {...project}
-                onReadMore={(p) => setSelectedProject(p)}
+        <main className="main-content">
+          <Suspense fallback={<div className="w-full h-64 bg-gray-100 dark:bg-zinc-800 animate-pulse rounded-lg" />}>
+            <section id="projects" className="projects-section">
+              <h2 className="section-header">Projects</h2>
+              <div className="projects-grid">
+                {projects.map((project, index) => (
+                  <ProjectCard
+                    key={index}
+                    {...project}
+                    onReadMore={(p) => setSelectedProject(p)}
+                  />
+                ))}
+              </div>
+            </section>
+          </Suspense>
+
+          <Suspense fallback={<div className="w-full h-48 bg-gray-100 dark:bg-zinc-800 animate-pulse rounded-lg" />}>
+            <AIEnhancedWorkflow />
+          </Suspense>
+
+          <Suspense fallback={<div className="w-full h-32 bg-gray-100 dark:bg-zinc-800 animate-pulse rounded-lg" />}>
+            <section id="experience" className="experience-section">
+              <h2 className="section-header">Experience</h2>
+              <ExperienceItem
+                date="2024 - 2025"
+                title="Freelancer at Soul AI"
+                company=""
+                description="Conducted rigorous evaluation of Large Language Models (LLMs) to enhance output quality and alignment. Performed detailed side-by-side comparisons, analyzing response effectiveness based on complex criteria and prompt variations. Applied advanced prompt engineering techniques to identify model strengths and weaknesses, contributing high-quality data essential for model fine-tuning and optimization."
+                tags={['LLM Evaluation', 'Prompt Engineering', 'Model Comparison', 'AI Training', 'Data Analysis']}
               />
-            ))}
-          </div>
-        </section>
+            </section>
+          </Suspense>
 
-        <AIEnhancedWorkflow />
+          <section id="education" className="education-section">
+            <h2 className="section-header">Education</h2>
+            <div className="education-item">
+              <h3 className="education-degree">Data Analyst (Ducat)</h3>
+              <p className="education-summary">
+                Completed an intensive Data Analytics program covering the full data pipeline. Mastered statistical analysis, data wrangling, and visualization techniques using Python (Pandas, NumPy), SQL, and Power BI to derive actionable business insights from complex datasets.
+              </p>
+            </div>
 
-        <section id="experience" className="experience-section">
-          <h2 className="section-header">Experience</h2>
-          <ExperienceItem
-            date="2024 - 2025"
-            title="Freelancer at Soul AI"
-            company=""
-            description="Conducted rigorous evaluation of Large Language Models (LLMs) to enhance output quality and alignment. Performed detailed side-by-side comparisons, analyzing response effectiveness based on complex criteria and prompt variations. Applied advanced prompt engineering techniques to identify model strengths and weaknesses, contributing high-quality data essential for model fine-tuning and optimization."
-            tags={['LLM Evaluation', 'Prompt Engineering', 'Model Comparison', 'AI Training', 'Data Analysis']}
-          />
-        </section>
+            <div className="education-item">
+              <h3 className="education-degree">Bachelor of Computer Applications (BCA)</h3>
+              <p className="education-summary">
+                Focused on core technologies including Python, SQL, and database management. Developed strong analytical capabilities alongside key soft skills such as problem-solving, critical thinking, and effective communication.
+              </p>
+            </div>
+          </section>
+        </main>
 
-        <section id="education" className="education-section">
-          <h2 className="section-header">Education</h2>
-          <div className="education-item">
-            <h3 className="education-degree">Data Analyst (Ducat)</h3>
-            <p className="education-summary">
-              Completed an intensive Data Analytics program covering the full data pipeline. Mastered statistical analysis, data wrangling, and visualization techniques using Python (Pandas, NumPy), SQL, and Power BI to derive actionable business insights from complex datasets.
-            </p>
-          </div>
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
 
-          <div className="education-item">
-            <h3 className="education-degree">Bachelor of Computer Applications (BCA)</h3>
-            <p className="education-summary">
-              Focused on core technologies including Python, SQL, and database management. Developed strong analytical capabilities alongside key soft skills such as problem-solving, critical thinking, and effective communication.
-            </p>
-          </div>
-        </section>
-      </main>
-
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
-
-      <ResumeModal
-        isOpen={isResumeOpen}
-        onClose={() => setIsResumeOpen(false)}
-      />
-    </div>
+        <ResumeModal
+          isOpen={isResumeOpen}
+          onClose={() => setIsResumeOpen(false)}
+        />
+      </div>
+    </Suspense>
   );
 }
 
