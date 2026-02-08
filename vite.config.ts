@@ -15,7 +15,7 @@ export default defineConfig({
   },
   build: {
     // Enable minification
-    minify: 'terser',
+    minify: 'esbuild',
     // Optimize chunk size
     rollupOptions: {
       output: {
