@@ -8,6 +8,8 @@ export interface ProjectData {
     fullDetails?: string;
     objective: string[];
     takeaways: { title: string; items: string[] }[];
+    impact?: string[];
     dashboardUrl?: string;
     engagementLink?: string;
 }
+

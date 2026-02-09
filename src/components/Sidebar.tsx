@@ -1,7 +1,9 @@
 import React from 'react';
-import { Linkedin, Github, FileText } from 'lucide-react';
+import { FileText } from 'lucide-react';
 import './Sidebar.css';
 import profileImage from '../assets/chatgpt_profile_image.png';
+import githubLogo from '../assets/GitHub_Invertocat_Black.png';
+import linkedinLogo from '../assets/icons8-linkedin-144.png';
 
 interface SidebarProps {
     onOpenResume: () => void;
@@ -16,16 +18,16 @@ const Sidebar: React.FC<SidebarProps> = ({ onOpenResume }) => {
 
             <div className="profile-info">
                 <h1 className="profile-name">Ujjaval Bhardwaj</h1>
-                <p className="profile-title">Data Analyst </p>
+                <p className="profile-title">Turning Complex Data into Business Growth </p>
                 <p className="profile-location">Based in India</p>
             </div>
 
             <div className="social-links">
                 <a href="https://www.linkedin.com/in/ujjaval-bhardwaj" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
-                    <Linkedin size={20} />
+                    <img src={linkedinLogo} alt="LinkedIn" width={24} height={24} />
                 </a>
                 <a href="https://github.com/Ujjaval0" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
-                    <Github size={20} />
+                    <img src={githubLogo} alt="GitHub" width={24} height={24} />
                 </a>
                 <div className="action-buttons">
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ujjavalbhardwaj6@gmail.com" target="_blank" rel="noopener noreferrer" className="email-me-pill">Gmail me</a>

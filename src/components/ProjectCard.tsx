@@ -78,7 +78,7 @@ export default function ProjectCard({
                         onClick={() => onReadMore({ title, description, tags, imageUrl, dashboardUrl, engagementLink, ...props })}
                         className="text-sm text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1"
                     >
-                        Read more →
+                        View Analysis →
                     </button>
                 </div>
             </Card>

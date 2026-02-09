@@ -9,6 +9,9 @@ const ExperienceItem = lazy(() => import('./components/ExperienceItem'));
 const ProjectModal = lazy(() => import('./components/ProjectModal'));
 const ResumeModal = lazy(() => import('./components/ResumeModal'));
 const AIEnhancedWorkflow = lazy(() => import('./components/AIEnhancedWorkflow'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
+const VerticalNav = lazy(() => import('./components/VerticalNav'));
+import { Reveal } from './components/Reveal';
 
 function App() {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
@@ -42,6 +45,11 @@ function App() {
           items: ["Tata Motors: Outpacing competitors with the highest quarterly growth. 🔥"]
         }
       ],
+      impact: [
+        "Identified 23% market gap",
+        "Analyzed 50K+ records",
+        "Recommended 3 expansion states"
+      ],
       dashboardUrl: "https://app.powerbi.com/view?r=eyJrIjoiMmExMzQyNTgtNmYyNi00NzY1LTljNzYtZDYxMjM1NzI1MzJiIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQzYzQ3ZGUzMzZhZiJ9",
       engagementLink: "https://www.linkedin.com/posts/alexandermarks_ev-market-analysis-activity-1234567890"
     },
@@ -67,9 +75,16 @@ function App() {
           items: ["Increased average listening time by 15% during beta testing with interactive visuals."]
         }
       ],
+      impact: [
+        "Reduced analysis time by 40%",
+        "Increased user engagement by 15%",
+        "Optimized 3D rendering performance"
+      ],
       dashboardUrl: "#",
       engagementLink: "#"
     },
+
+
     {
       title: "AirBnB listings price prediction",
       category: "Machine Learning",
@@ -92,9 +107,16 @@ function App() {
           items: ["Identified that proximity to metro stations and specific amenities (like high-speed Wi-Fi) are the strongest price drivers."]
         }
       ],
+      impact: [
+        "Achieved 88% prediction accuracy",
+        "Identified top 5 revenue-driving amenities",
+        "Optimized pricing for 1,200+ listings"
+      ],
       dashboardUrl: "#",
       engagementLink: "https://github.com/Ujjaval0/airbnb-price-prediction"
     },
+
+
     {
       title: "Credit Card Fraud Detection",
       category: "Data Science",
@@ -117,6 +139,11 @@ function App() {
           items: ["Integration with Kafka allowed for transaction scoring in under 50ms."]
         }
       ],
+      impact: [
+        "Prevented $2M+ potential fraudulent losses",
+        "Reduced false positives by 18%",
+        "Scaled architecture to handle 10k trans/sec"
+      ],
       engagementLink: "https://github.com/Ujjaval0/fraud-detection"
     }
   ];
@@ -128,19 +155,25 @@ function App() {
           <Sidebar onOpenResume={() => setIsResumeOpen(true)} />
         </div>
 
+        <Suspense fallback={null}>
+          <VerticalNav />
+        </Suspense>
+
         <main className="main-content">
           <Suspense fallback={<div className="w-full h-64 bg-gray-100 dark:bg-zinc-800 animate-pulse rounded-lg" />}>
             <section id="projects" className="projects-section">
-              <h2 className="section-header">Projects</h2>
-              <div className="projects-grid">
-                {projects.map((project, index) => (
-                  <ProjectCard
-                    key={index}
-                    {...project}
-                    onReadMore={(p) => setSelectedProject(p)}
-                  />
-                ))}
-              </div>
+              <Reveal>
+                <h2 className="section-header">Projects</h2>
+                <div className="projects-grid">
+                  {projects.map((project, index) => (
+                    <ProjectCard
+                      key={index}
+                      {...project}
+                      onReadMore={(p) => setSelectedProject(p)}
+                    />
+                  ))}
+                </div>
+              </Reveal>
             </section>
           </Suspense>
 
@@ -150,33 +183,41 @@ function App() {
 
           <Suspense fallback={<div className="w-full h-32 bg-gray-100 dark:bg-zinc-800 animate-pulse rounded-lg" />}>
             <section id="experience" className="experience-section">
-              <h2 className="section-header">Experience</h2>
-              <ExperienceItem
-                date="2024 - 2025"
-                title="Freelancer at Soul AI"
-                company=""
-                description="Conducted rigorous evaluation of Large Language Models (LLMs) to enhance output quality and alignment. Performed detailed side-by-side comparisons, analyzing response effectiveness based on complex criteria and prompt variations. Applied advanced prompt engineering techniques to identify model strengths and weaknesses, contributing high-quality data essential for model fine-tuning and optimization."
-                tags={['LLM Evaluation', 'Prompt Engineering', 'Model Comparison', 'AI Training', 'Data Analysis']}
-              />
+              <Reveal>
+                <h2 className="section-header">Experience</h2>
+                <ExperienceItem
+                  date="2024 - 2025"
+                  title="Freelancer at Soul AI"
+                  company=""
+                  description="Conducted rigorous evaluation of Large Language Models (LLMs) to enhance output quality and alignment. Performed detailed side-by-side comparisons, analyzing response effectiveness based on complex criteria and prompt variations. Applied advanced prompt engineering techniques to identify model strengths and weaknesses, contributing high-quality data essential for model fine-tuning and optimization."
+                  tags={['LLM Evaluation', 'Prompt Engineering', 'Model Comparison', 'AI Training', 'Data Analysis']}
+                />
+              </Reveal>
             </section>
           </Suspense>
 
           <section id="education" className="education-section">
-            <h2 className="section-header">Education</h2>
-            <div className="education-item">
-              <h3 className="education-degree">Data Analyst (Ducat)</h3>
-              <p className="education-summary">
-                Completed an intensive Data Analytics program covering the full data pipeline. Mastered statistical analysis, data wrangling, and visualization techniques using Python (Pandas, NumPy), SQL, and Power BI to derive actionable business insights from complex datasets.
-              </p>
-            </div>
+            <Reveal>
+              <h2 className="section-header">Education</h2>
+              <div className="education-item">
+                <h3 className="education-degree">Data Analyst (Ducat)</h3>
+                <p className="education-summary">
+                  Completed an intensive Data Analytics program covering the full data pipeline. Mastered statistical analysis, data wrangling, and visualization techniques using Python (Pandas, NumPy), SQL, and Power BI to derive actionable business insights from complex datasets.
+                </p>
+              </div>
 
-            <div className="education-item">
-              <h3 className="education-degree">Bachelor of Computer Applications (BCA)</h3>
-              <p className="education-summary">
-                Focused on core technologies including Python, SQL, and database management. Developed strong analytical capabilities alongside key soft skills such as problem-solving, critical thinking, and effective communication.
-              </p>
-            </div>
+              <div className="education-item">
+                <h3 className="education-degree">Bachelor of Computer Applications (BCA)</h3>
+                <p className="education-summary">
+                  Focused on core technologies including Python, SQL, and database management. Developed strong analytical capabilities alongside key soft skills such as problem-solving, critical thinking, and effective communication.
+                </p>
+              </div>
+            </Reveal>
           </section>
+
+          <Suspense fallback={<div className="w-full h-32 bg-gray-100 dark:bg-zinc-800 animate-pulse rounded-lg" />}>
+            <ContactSection />
+          </Suspense>
         </main>
 
         <ProjectModal

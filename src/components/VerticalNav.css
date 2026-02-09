@@ -1,0 +1,108 @@
+.vertical-nav {
+    position: fixed;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vertical-nav.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-dots-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    pointer-events: auto;
+}
+
+.nav-dot-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: none;
+    border: none;
+    padding: 6px 0;
+    cursor: pointer;
+    outline: none;
+    width: 32px;
+}
+
+.nav-dot {
+    width: 10px;
+    /* Smaller line */
+    height: 1.5px;
+    /* Thinner line */
+    background-color: var(--text-tertiary);
+    opacity: 0.2;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-radius: 1px;
+}
+
+.nav-dot-wrapper:hover .nav-dot {
+    opacity: 0.6;
+    background-color: var(--accent-primary);
+    width: 18px;
+    /* Slightly longer on hover */
+}
+
+.nav-dot-wrapper.active .nav-dot {
+    opacity: 1;
+    background-color: var(--accent-primary);
+    width: 24px;
+    /* Active line is small but distinct */
+    height: 2px;
+    box-shadow: 0 0 6px rgba(49, 130, 206, 0.2);
+}
+
+/* Tooltip */
+.nav-tooltip {
+    position: absolute;
+    right: 36px;
+    padding: 3px 10px;
+    background-color: var(--text-primary);
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(8px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.nav-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid var(--text-primary);
+}
+
+.nav-dot-wrapper:hover .nav-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Hide on mobile and small tablets */
+@media (max-width: 1200px) {
+    .vertical-nav {
+        display: none;
+    }
+}

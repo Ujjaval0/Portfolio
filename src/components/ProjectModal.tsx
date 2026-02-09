@@ -49,7 +49,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                         <h2 className="details-header">Project Details</h2>
 
                         <div className="detail-item">
-                            <h4 className="detail-subtitle">🏎️ Objective:</h4>
+                            <h4 className="detail-subtitle">🎯 Objective:</h4>
                             <ul className="detail-list">
                                 {project.objective.map((obj, i) => (
                                     <li key={i}>{obj}</li>
@@ -58,7 +58,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                         </div>
 
                         <div className="detail-item">
-                            <h4 className="detail-subtitle">🔍 Key Takeaways:</h4>
+                            <h4 className="detail-subtitle">📊 Key Insights:</h4>
                             {project.takeaways.map((takeaway, i) => (
                                 <div key={i} className="takeaway-group">
                                     <h5 className="takeaway-title">🏆 {takeaway.title}:</h5>
@@ -70,18 +70,45 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                                 </div>
                             ))}
                         </div>
+
+                        {project.impact && project.impact.length > 0 && (
+                            <div className="detail-item">
+                                <h4 className="detail-subtitle">💡 Impact & Results:</h4>
+                                <ul className="detail-list">
+                                    {project.impact.map((imp, i) => (
+                                        <li key={i}>{imp}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
                     </div>
 
                     {project.dashboardUrl && (
                         <div className="dashboard-section">
-                            <h2 className="details-header">Live Interactive Dashboard</h2>
-                            <div className="dashboard-placeholder">
-                                <ExternalLink size={32} />
-                                <p>Interactive Dashboard Preview (Simulation)</p>
-                                <a href={project.dashboardUrl} target="_blank" rel="noopener noreferrer" className="view-link">Open full dashboard</a>
+                            <h2 className="details-header">📈 Live Interactive Dashboard</h2>
+                            <div className="dashboard-container">
+                                {project.dashboardUrl.includes('powerbi') ? (
+                                    <div className="iframe-wrapper">
+                                        <iframe
+                                            title={project.title}
+                                            width="100%"
+                                            height="600"
+                                            src={project.dashboardUrl}
+                                            frameBorder="0"
+                                            allowFullScreen={true}
+                                        ></iframe>
+                                    </div>
+                                ) : (
+                                    <div className="dashboard-placeholder">
+                                        <ExternalLink size={32} />
+                                        <p>Interactive Dashboard Preview</p>
+                                        <a href={project.dashboardUrl} target="_blank" rel="noopener noreferrer" className="view-link">Open full dashboard</a>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     )}
+
                 </div>
             </div>
         </div>

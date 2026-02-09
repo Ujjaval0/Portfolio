@@ -67,3 +67,45 @@
 .read-more:hover {
     text-decoration: underline;
 }
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .project-title {
+        font-size: 18px;
+    }
+
+    .project-description {
+        font-size: 14px;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .project-card {
+        margin-bottom: 16px;
+    }
+
+    .project-image-wrapper {
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
+    }
+
+    .project-title {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+
+    .project-tag {
+        padding: 3px 10px;
+        font-size: 11px;
+    }
+
+    .project-description {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .read-more {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,144 @@
+.contact-section {
+    padding-bottom: 80px;
+    margin-top: 80px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 40px;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.contact-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Icons Grid Layout */
+.contact-icons-grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 8px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding: 12px;
+    border-radius: 12px;
+    position: relative;
+    /* Entrance animation setup */
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Stagger delays for entrance animation */
+.contact-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.contact-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.contact-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.contact-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced Hover Effect: Float & Glow */
+.contact-item:hover {
+    transform: translateY(-8px);
+}
+
+.contact-item:hover .contact-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 8px 16px rgba(59, 130, 246, 0.3));
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform, filter;
+}
+
+.contact-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.contact-item:hover .contact-label {
+    color: var(--accent-primary);
+    transform: translateY(2px);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 18px;
+    }
+
+    .contact-section {
+        margin-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .contact-icons-grid {
+        gap: 32px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contact-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .contact-label {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-icons-grid {
+        gap: 24px;
+    }
+
+    .contact-icon {
+        width: 36px;
+        height: 36px;
+    }
+}

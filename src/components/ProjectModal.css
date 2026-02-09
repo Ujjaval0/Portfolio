@@ -245,6 +245,19 @@
     border-top: 1px solid #f3f4f6;
 }
 
+.dashboard-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.iframe-wrapper {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
 .dashboard-placeholder {
     width: 100%;
     aspect-ratio: 21 / 9;
@@ -258,6 +271,7 @@
     gap: 16px;
     color: #6b7280;
 }
+
 
 .view-link {
     color: #2563eb;
@@ -284,5 +298,107 @@
 
     .modal-header-right {
         order: -1;
+    }
+
+    .tools-section,
+    .details-section,
+    .dashboard-section {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        max-height: 90vh;
+        border-radius: 16px;
+    }
+
+    .modal-header-grid {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .modal-title {
+        font-size: 24px;
+    }
+
+    .category-badge {
+        font-size: 12px;
+        padding: 4px 12px;
+    }
+
+    .modal-top-description {
+        font-size: 14px;
+    }
+
+    .tools-section,
+    .details-section,
+    .dashboard-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .details-header {
+        font-size: 20px;
+    }
+
+    .detail-subtitle {
+        font-size: 15px;
+    }
+
+    .detail-list li {
+        font-size: 14px;
+    }
+
+    .tool-badge {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .iframe-wrapper iframe {
+        height: 400px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 10px;
+    }
+
+    .modal-content {
+        border-radius: 12px;
+    }
+
+    .modal-close {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .modal-header-grid {
+        padding: 16px;
+    }
+
+    .modal-title {
+        font-size: 20px;
+    }
+
+    .tools-section,
+    .details-section,
+    .dashboard-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .gallery-container {
+        aspect-ratio: 16 / 9;
+    }
+
+    .iframe-wrapper iframe {
+        height: 300px;
     }
 }
