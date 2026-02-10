@@ -297,7 +297,7 @@
         text-align: center;
         min-width: unset;
         width: 100%;
-        margin-bottom: 12px;
+        margin-bottom: 4px;
     }
 
     .profile-name {
@@ -310,11 +310,18 @@
 
     .social-links {
         justify-content: center;
-        gap: 8px;
+        flex-wrap: wrap;
+        gap: 12px;
         margin-bottom: 24px;
     }
 
+    .social-link {
+        order: 1;
+    }
+
     .action-buttons {
+        order: 2;
+        flex-basis: 100%;
         justify-content: center;
         width: 100%;
         gap: 8px;
