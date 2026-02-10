@@ -39,8 +39,8 @@
     right: 20px;
     background: white;
     border: none;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -50,6 +50,8 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     color: #4b5563;
     transition: all 0.2s;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .modal-close:hover {
@@ -87,6 +89,8 @@
     color: #111827;
     line-height: 1.2;
     margin-bottom: 16px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .domain-info {
@@ -147,6 +151,7 @@
     /* Firefox */
     -ms-overflow-style: none;
     /* IE and Edge */
+    overscroll-behavior: contain;
 }
 
 .modal-scroll-area::-webkit-scrollbar {
@@ -279,6 +284,9 @@
     font-weight: 600;
     font-size: 14px;
     border-bottom: 1px solid #2563eb;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .view-link:hover {
@@ -286,18 +294,20 @@
     border-bottom-color: #1d4ed8;
 }
 
+/* Tablet */
 @media (max-width: 1024px) {
     .modal-header-grid {
         grid-template-columns: 1fr;
-        padding: 30px;
-    }
-
-    .modal-scroll-area {
-        padding: 30px;
+        padding: 40px 30px 30px;
+        gap: 24px;
     }
 
     .modal-header-right {
         order: -1;
+    }
+
+    .modal-title {
+        font-size: 28px;
     }
 
     .tools-section,
@@ -310,18 +320,24 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .modal-overlay {
+        padding: 12px;
+        align-items: flex-end;
+    }
+
     .modal-content {
-        max-height: 90vh;
-        border-radius: 16px;
+        max-height: 92vh;
+        border-radius: 16px 16px 0 0;
+        /* Bottom sheet style */
     }
 
     .modal-header-grid {
-        padding: 20px;
-        gap: 20px;
+        padding: 24px 20px 20px;
+        gap: 16px;
     }
 
     .modal-title {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .category-badge {
@@ -331,6 +347,13 @@
 
     .modal-top-description {
         font-size: 14px;
+        line-height: 1.65;
+        margin-bottom: 20px;
+    }
+
+    .domain-info {
+        font-size: 14px;
+        margin-bottom: 16px;
     }
 
     .tools-section,
@@ -342,6 +365,7 @@
 
     .details-header {
         font-size: 20px;
+        margin-bottom: 20px;
     }
 
     .detail-subtitle {
@@ -350,55 +374,126 @@
 
     .detail-list li {
         font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .detail-item {
+        margin-bottom: 24px;
     }
 
     .tool-badge {
         font-size: 12px;
-        padding: 6px 12px;
+        padding: 6px 14px;
+    }
+
+    .tools-grid {
+        gap: 8px;
     }
 
     .iframe-wrapper iframe {
         height: 400px;
+    }
+
+    .dashboard-placeholder {
+        aspect-ratio: 16 / 9;
+        gap: 12px;
+    }
+
+    .gallery-container {
+        aspect-ratio: 16 / 9;
     }
 }
 
 /* Small Mobile */
 @media (max-width: 480px) {
     .modal-overlay {
-        padding: 10px;
+        padding: 0;
     }
 
     .modal-content {
-        border-radius: 12px;
+        max-height: 100vh;
+        height: 100vh;
+        border-radius: 0;
     }
 
     .modal-close {
         top: 12px;
         right: 12px;
-        width: 32px;
-        height: 32px;
     }
 
     .modal-header-grid {
-        padding: 16px;
+        padding: 48px 16px 16px;
+        /* Extra top for close button */
     }
 
     .modal-title {
         font-size: 20px;
     }
 
-    .tools-section,
-    .details-section,
-    .dashboard-section {
-        padding-left: 16px;
-        padding-right: 16px;
+    .modal-top-description {
+        font-size: 13px;
     }
 
-    .gallery-container {
-        aspect-ratio: 16 / 9;
+    .tools-section {
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-bottom: 20px;
+    }
+
+    .details-section {
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-bottom: 32px;
+    }
+
+    .dashboard-section {
+        padding: 24px 16px;
+    }
+
+    .details-header {
+        font-size: 18px;
+    }
+
+    .tool-badge {
+        font-size: 11px;
+        padding: 5px 12px;
     }
 
     .iframe-wrapper iframe {
         height: 300px;
+    }
+
+    .takeaway-group {
+        margin-bottom: 18px;
+    }
+
+    .takeaway-title {
+        font-size: 14px;
+    }
+}
+
+/* Landscape phones */
+@media (max-width: 768px) and (orientation: landscape) {
+    .modal-overlay {
+        padding: 8px;
+        align-items: center;
+    }
+
+    .modal-content {
+        max-height: 95vh;
+        border-radius: 12px;
+    }
+
+    .modal-header-grid {
+        grid-template-columns: 1fr 1fr;
+        padding: 20px;
+    }
+
+    .modal-header-right {
+        order: 0;
+    }
+
+    .modal-title {
+        font-size: 20px;
     }
 }

@@ -42,6 +42,9 @@
     /* Entrance animation setup */
     opacity: 0;
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    /* Touch target */
+    min-width: 60px;
+    min-height: 60px;
 }
 
 /* Stagger delays for entrance animation */
@@ -106,20 +109,63 @@
     font-weight: 600;
 }
 
+/* Tablet */
+@media (max-width: 1024px) {
+    .contact-section {
+        margin-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    .contact-icons-grid {
+        gap: 36px;
+    }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
     .contact-title {
         font-size: 18px;
     }
 
     .contact-section {
-        margin-top: 60px;
-        padding-bottom: 60px;
+        margin-top: 48px;
+        padding-bottom: 48px;
+        padding-top: 32px;
+    }
+
+    .contact-content {
+        gap: 24px;
     }
 
     .contact-icons-grid {
-        gap: 32px;
+        gap: 20px;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .contact-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .contact-label {
+        font-size: 13px;
+    }
+
+    .contact-item {
+        padding: 10px;
+        gap: 8px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .contact-title {
+        font-size: 16px;
+    }
+
+    .contact-icons-grid {
+        gap: 12px;
     }
 
     .contact-icon {
@@ -128,17 +174,11 @@
     }
 
     .contact-label {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 480px) {
-    .contact-icons-grid {
-        gap: 24px;
+        font-size: 12px;
     }
 
-    .contact-icon {
-        width: 36px;
-        height: 36px;
+    .contact-section {
+        margin-top: 36px;
+        padding-bottom: 40px;
     }
 }

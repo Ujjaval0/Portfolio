@@ -34,6 +34,7 @@
     cursor: pointer;
     outline: none;
     width: 32px;
+    min-height: 24px;
 }
 
 .nav-dot {
@@ -100,8 +101,8 @@
     transform: translateX(0);
 }
 
-/* Hide on mobile and small tablets */
-@media (max-width: 1200px) {
+/* Hide on tablets and below (sidebar is no longer sticky) */
+@media (max-width: 1024px) {
     .vertical-nav {
         display: none;
     }

@@ -15,6 +15,8 @@
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  flex-shrink: 0;
+  transition: width 0.3s ease, min-width 0.3s ease;
 }
 
 .main-content {
@@ -22,6 +24,8 @@
   padding: 40px 70px 40px 50px;
   /* Reduced right padding for Nav */
   background-color: white;
+  min-width: 0;
+  /* Prevent flex overflow */
 }
 
 .section-header {
@@ -68,6 +72,18 @@
   line-height: 1.6;
 }
 
+/* Large Tablet / Small Desktop */
+@media (max-width: 1200px) {
+  .sidebar-wrapper {
+    width: 320px;
+    min-width: 320px;
+  }
+
+  .main-content {
+    padding: 36px 50px 36px 40px;
+  }
+}
+
 /* Tablet Responsive */
 @media (max-width: 1024px) {
   .layout-container {
@@ -79,14 +95,19 @@
     min-width: 100%;
     height: auto;
     position: relative;
+    max-height: none;
   }
 
   .main-content {
-    padding: 40px 30px;
+    padding: 36px 30px;
   }
 
   .projects-grid {
     gap: 20px;
+  }
+
+  .experience-section {
+    margin-bottom: 64px;
   }
 }
 
@@ -94,11 +115,11 @@
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 20px;
   }
 
   .main-content {
-    padding: 30px 20px;
+    padding: 28px 20px;
   }
 
   .section-header {
@@ -107,7 +128,7 @@
   }
 
   .experience-section {
-    margin-bottom: 60px;
+    margin-bottom: 48px;
   }
 
   .education-degree {
@@ -116,21 +137,55 @@
 
   .education-summary {
     font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .education-section {
+    margin-bottom: 36px;
   }
 }
 
 /* Small Mobile */
 @media (max-width: 480px) {
   .main-content {
-    padding: 24px 16px;
+    padding: 20px 16px;
   }
 
   .projects-grid {
-    gap: 12px;
+    gap: 16px;
     margin-bottom: 32px;
   }
 
   .education-item {
     margin-bottom: 20px;
+  }
+
+  .education-degree {
+    font-size: 15px;
+  }
+
+  .education-summary {
+    font-size: 13px;
+  }
+
+  .section-header {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .experience-section {
+    margin-bottom: 40px;
+  }
+}
+
+/* Landscape phones */
+@media (max-width: 768px) and (orientation: landscape) {
+  .main-content {
+    padding: 20px 32px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }

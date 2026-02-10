@@ -56,8 +56,8 @@ export default function ProjectCard({
                     </div>
                 </div>
 
-                <div className="p-5">
-                    <h3 className="mb-2 text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                <div className="p-4 sm:p-5">
+                    <h3 className="mb-2 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
                         {title}
                     </h3>
                     <div className="flex flex-wrap gap-2 mb-3">
@@ -65,18 +65,18 @@ export default function ProjectCard({
                             <Badge
                                 key={index}
                                 variant="secondary"
-                                className="bg-blue-50 text-blue-600 px-3 py-1 text-xs font-medium hover:bg-blue-100 border-0"
+                                className="bg-blue-50 text-blue-600 px-2 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-xs font-medium hover:bg-blue-100 border-0"
                             >
                                 {tag}
                             </Badge>
                         ))}
                     </div>
-                    <p className="mb-4 text-sm text-muted-foreground leading-relaxed">
+                    <p className="mb-4 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                         {description}
                     </p>
                     <button
                         onClick={() => onReadMore({ title, description, tags, imageUrl, dashboardUrl, engagementLink, ...props })}
-                        className="text-sm text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1"
+                        className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1 min-h-[44px]"
                     >
                         View Analysis →
                     </button>
