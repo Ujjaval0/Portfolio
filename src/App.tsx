@@ -54,34 +54,39 @@ function App() {
       engagementLink: "https://www.linkedin.com/posts/alexandermarks_ev-market-analysis-activity-1234567890"
     },
     {
-      title: "Spotify visual data art",
-      category: "Python Project",
-      domain: "Entertainment",
-      tags: ['Python', 'Javascript', 'SQL', 'Three.js'],
-      description: "Inspired by Windows Music Player animations, this algorithm creates cool animations for every music track on earth.",
-      imageUrl: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=800",
+      title: "Vrinda Store Analysis",
+      category: "Excel Project",
+      domain: "Retail & E-commerce",
+      tags: ['Excel', 'ETL', 'Power Query editor', 'Business Insights'],
+      description: "A data-driven analysis of ₹21.18 Cr in annual sales for Vrinda Store. This project involved deep-diving into 30,000+ transaction records to identify high-value customer segments and optimize sales channels.",
+      imageUrl: "https://raw.githubusercontent.com/ChhavikKapoor20/Vrinda-Store-Data-Analysis/main/VrindaStoreReport2023.png",
       objective: [
-        "Create real-time visual representations of musical data.",
-        "Enhance user engagement through immersive 3D environments.",
-        "Analyze track metrics like tempo, energy, and danceability."
+        "Consolidated and cleaned multi-channel sales data using Excel Power Query.",
+        "Segmented customers by demographics to identify the core revenue drivers.",
+        "Analyzed regional sales performance to pinpoint growth opportunities.",
+        "Created an interactive dashboard to visualize order status and return trends."
       ],
       takeaways: [
         {
-          title: "Real-time Analysis",
-          items: ["Achieved sub-100ms latency in audio feature extraction and visual synchronization."]
+          title: "The Women Factor",
+          items: ["Female customers drive 64% of total revenue (~₹13.56 Cr), with adult women (30-50) being the highest-spending segment."]
         },
         {
-          title: "User Interaction",
-          items: ["Increased average listening time by 15% during beta testing with interactive visuals."]
+          title: "Channel Efficiency",
+          items: ["Amazon, Myntra, and Flipkart generate 80% of total revenue, indicating strong marketplace dominance but identifying a need for channel diversification."]
+        },
+        {
+          title: "Geographic Insights",
+          items: ["Maharashtra and Karnataka lead in sales, while North India represents a major untapped market for future expansion."]
         }
       ],
       impact: [
-        "Reduced analysis time by 40%",
-        "Increased user engagement by 15%",
-        "Optimized 3D rendering performance"
+        "Processed 32,047 orders with an overall 89.3% delivery success rate",
+        "Identified a potential ₹40-50 Lakhs in savings by optimizing return treatments",
+        "Streamlined inventory planning by identifying peak sales cycles (Jan-Apr)"
       ],
-      dashboardUrl: "#",
-      engagementLink: "#"
+      dashboardUrl: "https://vrindastore.netlify.app/",
+      engagementLink: "https://github.com/Ujjaval0/vrinda-store-analysis"
     },
 
 

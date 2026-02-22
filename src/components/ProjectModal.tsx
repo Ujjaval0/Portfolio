@@ -83,28 +83,32 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                         )}
                     </div>
 
-                    {project.dashboardUrl && (
+                    {project.dashboardUrl && project.dashboardUrl !== '#' && (
                         <div className="dashboard-section">
                             <h2 className="details-header">📈 Live Interactive Dashboard</h2>
                             <div className="dashboard-container">
-                                {project.dashboardUrl.includes('powerbi') ? (
-                                    <div className="iframe-wrapper">
-                                        <iframe
-                                            title={project.title}
-                                            width="100%"
-                                            height="600"
-                                            src={project.dashboardUrl}
-                                            frameBorder="0"
-                                            allowFullScreen={true}
-                                        ></iframe>
-                                    </div>
-                                ) : (
-                                    <div className="dashboard-placeholder">
-                                        <ExternalLink size={32} />
-                                        <p>Interactive Dashboard Preview</p>
-                                        <a href={project.dashboardUrl} target="_blank" rel="noopener noreferrer" className="view-link">Open full dashboard</a>
-                                    </div>
-                                )}
+                                <div className="iframe-wrapper">
+                                    <iframe
+                                        title={project.title}
+                                        width="100%"
+                                        height="600"
+                                        src={project.dashboardUrl}
+                                        frameBorder="0"
+                                        allowFullScreen={true}
+                                        style={{ borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }}
+                                    ></iframe>
+                                </div>
+                                <div style={{ textAlign: 'center', marginTop: '12px' }}>
+                                    <a
+                                        href={project.dashboardUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="view-link"
+                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                                    >
+                                        <ExternalLink size={14} /> Open in new tab
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     )}
