@@ -28,6 +28,17 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                                 <span className="domain-value">{project.domain}</span>
                             </div>
                             <p className="modal-top-description">{project.description}</p>
+                            {project.reportUrl && (
+                                <a
+                                    href={project.reportUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="report-link-btn"
+                                >
+                                    <ExternalLink size={14} />
+                                    View Full Report
+                                </a>
+                            )}
                         </div>
 
                         <div className="modal-header-right">
@@ -83,32 +94,44 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                         )}
                     </div>
 
-                    {project.dashboardUrl && project.dashboardUrl !== '#' && (
+                    {project.dashboardUrl && (
                         <div className="dashboard-section">
-                            <h2 className="details-header">📈 Live Interactive Dashboard</h2>
-                            <div className="dashboard-container">
-                                <div className="iframe-wrapper">
-                                    <iframe
-                                        title={project.title}
-                                        width="100%"
-                                        height="600"
-                                        src={project.dashboardUrl}
-                                        frameBorder="0"
-                                        allowFullScreen={true}
-                                        style={{ borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }}
-                                    ></iframe>
-                                </div>
-                                <div style={{ textAlign: 'center', marginTop: '12px' }}>
-                                    <a
-                                        href={project.dashboardUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="view-link"
-                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-                                    >
-                                        <ExternalLink size={14} /> Open in new tab
-                                    </a>
-                                </div>
+                            {(() => {
+                                const isPdf = project.dashboardUrl!.toLowerCase().endsWith('.pdf');
+                                return (
+                                    <div className="dashboard-section-header">
+                                        <div>
+                                            <h2 className="details-header" style={{ marginBottom: '4px' }}>
+                                                {isPdf ? '📊 Power BI Report — Full PDF' : '🌐 Live Interactive Report'}
+                                            </h2>
+                                            <p className="dashboard-subtitle">
+                                                {isPdf
+                                                    ? 'Scroll through all 3 dashboard pages below'
+                                                    : 'Explore the full report directly below'}
+                                            </p>
+                                        </div>
+                                        <a
+                                            href={project.dashboardUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="report-link-btn"
+                                            style={{ flexShrink: 0 }}
+                                        >
+                                            <ExternalLink size={14} />
+                                            {isPdf ? 'Open PDF' : 'Open Report'}
+                                        </a>
+                                    </div>
+                                );
+                            })()}
+                            <div className="pdf-embed-wrapper">
+                                <iframe
+                                    title={`${project.title} — Report`}
+                                    src={project.dashboardUrl}
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 'none', display: 'block' }}
+                                    allowFullScreen={true}
+                                />
                             </div>
                         </div>
                     )}

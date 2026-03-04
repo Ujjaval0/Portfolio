@@ -1,6 +1,8 @@
 import { useState, lazy, Suspense } from 'react';
 import type { ProjectData } from './types';
 import './App.css';
+import aiEconomyImg from './assets/The ai economy.png';
+import aiJobsPdf from './assets/Ai Jobs.pdf';
 
 // Lazy load components for better performance
 const Sidebar = lazy(() => import('./components/Sidebar'));
@@ -19,39 +21,53 @@ function App() {
 
   const projects: ProjectData[] = [
     {
-      title: "EV Market & Sales Performance Dashboard",
+      title: "The AI Economy — Data Report 2024-2030",
       category: "PowerBI Project",
-      domain: "Automotive",
-      tags: ['Excel', 'Power Query', 'MS PowerPoint'],
-      description: "This challenge focused on uncovering insights for AtliQ Motors, which holds a 25% market share in North America but under 2% in India. Led by Bruce Haryali, we set out to decode the Indian EV market.",
-      imageUrl: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800",
+      domain: "AI & Labour Economics",
+      tags: ['Excel', 'Power BI', 'DAX'],
+      description: "Everyone has an opinion about AI. This project has data instead. Analyzed 500 startups, $10.7B in real funding deals, and 30,000 jobs across 8 industries worldwide — to find out what is actually happening versus what the headlines say.",
+      imageUrl: aiEconomyImg,
       objective: [
-        "Grasp the current landscape of the EV market in India.",
-        "Spot key trends and identify growth opportunities.",
-        "Break down sales data by state, manufacturer, and vehicle category.",
-        "Deliver actionable insights and strategies to boost AtliQ Motors' market share."
+        "Analyze global startup performance across 8 industries and 5 regions.",
+        "Track $10.7B in real 2024-25 funding deals across 7 countries.",
+        "Identify which industries are growing and shrinking in the job market by 2030.",
+        "Challenge common assumptions about AI, money, and career safety with real data."
       ],
       takeaways: [
         {
-          title: "Top EV Makers (FY 2023 & 2024)",
-          items: ["OLA Electric: Leading the pack for two consecutive years, while smaller players like Jitendra and Battre Electric are struggling to keep up."]
+          title: "Startups & ROI",
+          items: [
+            "AI has the lowest capital efficiency of all 8 industries — $7.90 per $1 invested vs E-Commerce's $10.00.",
+            "76% of AI startups never exit — no IPO, no acquisition, despite all the hype.",
+            "All 5 global regions are within 2% of each other — startup funding is genuinely global now."
+          ]
         },
         {
-          title: "Top States by EV Penetration (FY 2024)",
-          items: ["Goa: Dominates in 2-wheeler adoption!", "Kerala: Excelling in both 2-wheelers and 4-wheelers. 🚀"]
+          title: "Funding (2024-25)",
+          items: [
+            "India averages $745M per deal — nearly double USA's $403M.",
+            "60% of $10.7B went to non-AI companies — SpaceX, Byju's, Revolut led the list.",
+            "FinTech matched pure AI in funding within $10M — with zero media coverage."
+          ]
         },
         {
-          title: "Quarterly Trends for Leading 4-Wheeler EV Makers",
-          items: ["Tata Motors: Outpacing competitors with the highest quarterly growth. 🔥"]
+          title: "Job Market by 2030",
+          items: [
+            "Transportation loses 444,302 jobs — biggest decline of any industry.",
+            "IT gains 511,824 jobs — highest growth AND highest salary.",
+            "4,437 job titles already in the danger zone today — not in 2030, right now."
+          ]
         }
       ],
       impact: [
-        "Identified 23% market gap",
-        "Analyzed 50K+ records",
-        "Recommended 3 expansion states"
+        "Analyzed 45,525 records across 3 datasets to surface insights that challenge mainstream AI narratives",
+        "Identified 23% efficiency gap between AI and E-Commerce in startup capital returns",
+        "Projected 444,302 job losses in Transportation vs 511,824 gains in IT by 2030",
+        "Built a 3-page interactive Power BI dashboard with 13 custom DAX measures"
       ],
-      dashboardUrl: "https://app.powerbi.com/view?r=eyJrIjoiMmExMzQyNTgtNmYyNi00NzY1LTljNzYtZDYxMjM1NzI1MzJiIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQzYzQ3ZGUzMzZhZiJ9",
-      engagementLink: "https://www.linkedin.com/posts/alexandermarks_ev-market-analysis-activity-1234567890"
+      dashboardUrl: aiJobsPdf,
+      reportUrl: "https://ai-jobs-impact-2024-2030.vercel.app/",
+      engagementLink: "https://github.com/Ujjaval0/AI-Jobs-Impact-2024-2030"
     },
     {
       title: "Vrinda Store Analysis",

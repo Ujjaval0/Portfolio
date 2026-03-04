@@ -10,6 +10,7 @@ export interface ProjectData {
     takeaways: { title: string; items: string[] }[];
     impact?: string[];
     dashboardUrl?: string;
+    reportUrl?: string;
     engagementLink?: string;
 }
 
