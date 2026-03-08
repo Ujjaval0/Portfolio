@@ -3,6 +3,8 @@ import type { ProjectData } from './types';
 import './App.css';
 import aiEconomyImg from './assets/The ai economy.png';
 import aiJobsPdf from './assets/Ai Jobs.pdf';
+import customerImg from './assets/Customer.png';
+import customerPdf from './assets/Customer Behavior power bi report.pdf';
 
 // Lazy load components for better performance
 const Sidebar = lazy(() => import('./components/Sidebar'));
@@ -107,34 +109,53 @@ function App() {
 
 
     {
-      title: "AirBnB listings price prediction",
-      category: "Machine Learning",
-      domain: "Real Estate",
-      tags: ['Python', 'SQL', 'Matlab', 'Scikit-learn'],
-      description: "Prediction of AirBnB prices growth Milan (Italy) to provide insights on the areas that might soon get more opportunities to monetise with short stays.",
-      imageUrl: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800",
+      title: "Customer Shopping Behavior — Retail Analytics 2026",
+      category: "Data Analysis",
+      domain: "Retail & Consumer Analytics",
+      tags: ['SQL', 'Python', 'Power BI', 'Data Visualization', 'Customer Segmentation', 'Business Intelligence'],
+      description: "Everyone has an opinion about what makes customers spend more. This project has data instead. Analyzed 3,900 customers, $233K in real transactions, and 19 behavioral variables across 4 product categories — to find out what actually drives retail revenue versus what most businesses assume.",
+      imageUrl: customerImg,
       objective: [
-        "Identify high-potential investment areas in Milan.",
-        "Predict price fluctuations based on seasonality and events.",
-        "Optimize pricing strategies for hosts to maximize revenue."
+        "Analyze customer spending behavior across 4 categories and 6 shipping types.",
+        "Examine whether subscriptions and discounts actually increase purchase value.",
+        "Segment customers into New, Returning, and Loyal tiers based on purchase history.",
+        "Challenge common retail assumptions about gender spend, loyalty, and promo effectiveness."
       ],
       takeaways: [
         {
-          title: "Model Accuracy",
-          items: ["Achieved a MAPE of 12% using a Random Forest Regressor optimized with GridSearchCV."]
+          title: "Subscriptions & Loyalty",
+          items: [
+            "80% of customers (3,116 out of 3,900) are already Loyal buyers — this is a retention business, not an acquisition one.",
+            "Only 27.6% of repeat buyers are subscribed — the most valuable customers are the least monetized.",
+            "Subscriptions don't increase basket size — $59.49 avg for subscribers vs. $59.87 for non-subscribers."
+          ]
         },
         {
-          title: "Impact Factors",
-          items: ["Identified that proximity to metro stations and specific amenities (like high-speed Wi-Fi) are the strongest price drivers."]
+          title: "Discounts & Pricing",
+          items: [
+            "Discounts are hurting margin without lifting spend — promo users averaged $59.28 vs. $60.13 without promos.",
+            "Hat, Sneakers, and Coat are discounted on nearly every other sale — 50%, 49.7%, and 49.1% discount rates.",
+            "Customers who used discounts AND still beat the average spend represent a very small subset."
+          ]
+        },
+        {
+          title: "Revenue & Category",
+          items: [
+            "Clothing dominates at $104,264 — nearly 3x Footwear's $36,093.",
+            "The gender revenue gap ($157,890 male vs. $75,191 female) is purely a volume gap — avg spend per order is almost identical ($59.54 vs. $60.25).",
+            "Fall is the strongest season at $60,018 — Summer is the weakest at $55,777.",
+            "Young Adults lead all age groups in both revenue ($62K) and customer count (1,028)."
+          ]
         }
       ],
       impact: [
-        "Achieved 88% prediction accuracy",
-        "Identified top 5 revenue-driving amenities",
-        "Optimized pricing for 1,200+ listings"
+        "Analyzed 3,900 customers and $233K in transactions across 19 behavioral variables",
+        "Revealed that 80% of customers are already Loyal — shifting strategy from acquisition to monetization",
+        "Proved discounts reduce margin without lifting basket size, across 3 high-volume SKUs",
+        "Identified a $82,699 revenue gap between male and female segments driven entirely by volume, not spend"
       ],
-      dashboardUrl: "#",
-      engagementLink: "https://github.com/Ujjaval0/airbnb-price-prediction"
+      dashboardUrl: customerPdf,
+      engagementLink: "https://github.com/Ujjaval0/Customer-Shopping-Behavior-Analysis"
     },
 
 

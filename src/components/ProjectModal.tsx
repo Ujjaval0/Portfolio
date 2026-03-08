@@ -126,7 +126,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                             <div className="pdf-embed-wrapper">
                                 <iframe
                                     title={`${project.title} — Report`}
-                                    src={project.dashboardUrl}
+                                    src={`${project.dashboardUrl}#zoom=page-width&view=FitH`}
                                     width="100%"
                                     height="100%"
                                     style={{ border: 'none', display: 'block' }}
