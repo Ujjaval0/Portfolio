@@ -4,7 +4,7 @@ import './App.css';
 import aiEconomyImg from './assets/The ai economy.png';
 import aiJobsPdf from './assets/Ai Jobs.pdf';
 import customerImg from './assets/Customer.png';
-import customerPdf from './assets/Customer Behavior power bi report.pdf';
+import customerPdf from './assets/Customer Behavior.pdf';
 
 // Lazy load components for better performance
 const Sidebar = lazy(() => import('./components/Sidebar'));

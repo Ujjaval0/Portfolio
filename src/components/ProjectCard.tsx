@@ -29,7 +29,7 @@ export default function ProjectCard({
             className={cn("w-full", className)}
         >
             <Card className="group relative h-full overflow-hidden rounded-2xl border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
-                <div className="relative overflow-hidden rounded-t-2xl" style={{ aspectRatio: '20/9' }}>
+                <div className="relative overflow-hidden rounded-t-2xl" style={{ aspectRatio: '20/7' }}>
                     <motion.img
                         src={imageUrl}
                         alt={title}
@@ -56,11 +56,11 @@ export default function ProjectCard({
                     </div>
                 </div>
 
-                <div className="p-4 sm:p-5">
-                    <h3 className="mb-2 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                <div className="p-3 sm:p-4">
+                    <h3 className="mb-1.5 text-base sm:text-lg md:text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
                         {title}
                     </h3>
-                    <div className="flex flex-wrap gap-2 mb-3">
+                    <div className="flex flex-wrap gap-1.5 mb-2">
                         {tags?.map((tag, index) => (
                             <Badge
                                 key={index}
@@ -71,7 +71,7 @@ export default function ProjectCard({
                             </Badge>
                         ))}
                     </div>
-                    <p className="mb-4 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <p className="mb-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                         {description}
                     </p>
                     <button
