@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Download } from 'lucide-react';
-import resumeFile from '../assets/resume.pdf';
+import resumeFile from '../assets/ujjaval data analyst.pdf';
 import './ResumeModal.css';
 
 interface ResumeModalProps {
