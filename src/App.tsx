@@ -103,7 +103,7 @@ function App() {
         "Identified a potential ₹40-50 Lakhs in savings by optimizing return treatments",
         "Streamlined inventory planning by identifying peak sales cycles (Jan-Apr)"
       ],
-      dashboardUrl: "https://vrindastore.netlify.app/",
+      dashboardUrl: "https://vrinda-store-analysis.vercel.app/",
       engagementLink: "https://github.com/Ujjaval0/vrinda-store-analysis"
     },
 
