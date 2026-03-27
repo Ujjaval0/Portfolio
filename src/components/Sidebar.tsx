@@ -41,8 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onOpenResume }) => {
             <div className="sidebar-section">
                 <h2 className="sidebar-header">About</h2>
                 <p className="about-text">
-                    Data-driven analyst with a BCA and a diploma in Data Analytics, focused on turning raw data into clear, practical insights.
-                    I use Python, Excel, SQL, Power BI, and prompt engineering to analyze data, build dashboards, and turn findings into decisions that drive business impact.
+                    I've always been curious about how things work — data is where that found its purpose. BCA grad, diploma in Data Analytics, and someone who loves picking up new tools. I use Python, SQL, Power BI, and Excel to turn messy data into decisions that make business sense.
                 </p>
             </div>
 
@@ -52,7 +51,6 @@ const Sidebar: React.FC<SidebarProps> = ({ onOpenResume }) => {
                     <span className="skill-badge blue">SQL</span>
                     <span className="skill-badge blue">Python</span>
                     <span className="skill-badge blue">PowerBI</span>
-                    <span className="skill-badge blue">LLM's</span>
                     <span className="skill-badge blue">Excel</span>
                     <span className="skill-badge blue">Statistical Analysis</span>
                     <span className="skill-badge blue">Data Visualization</span>

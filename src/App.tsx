@@ -86,87 +86,67 @@ function App() {
       engagementLink: "https://github.com/Ujjaval0/AI-Jobs-Impact-2024-2030"
     },
     {
-      title: "Vrinda Store Analysis",
-      category: "Excel Project",
-      domain: "Retail & E-commerce",
-      tags: ['Excel', 'ETL', 'Power Query editor', 'Business Insights'],
-      description: "A data-driven analysis of ₹21.18 Cr in annual sales for Vrinda Store. This project involved deep-diving into 30,000+ transaction records to identify high-value customer segments and optimize sales channels.",
-      imageUrl: "https://raw.githubusercontent.com/ChhavikKapoor20/Vrinda-Store-Data-Analysis/main/VrindaStoreReport2023.png",
-      objective: [
-        "Consolidated and cleaned multi-channel sales data using Excel Power Query.",
-        "Segmented customers by demographics to identify the core revenue drivers.",
-        "Analyzed regional sales performance to pinpoint growth opportunities.",
-        "Created an interactive dashboard to visualize order status and return trends."
-      ],
-      takeaways: [
-        {
-          title: "The Women Factor",
-          items: ["Female customers drive 64% of total revenue (~₹13.56 Cr), with adult women (30-50) being the highest-spending segment."]
-        },
-        {
-          title: "Channel Efficiency",
-          items: ["Amazon, Myntra, and Flipkart generate 80% of total revenue, indicating strong marketplace dominance but identifying a need for channel diversification."]
-        },
-        {
-          title: "Geographic Insights",
-          items: ["Maharashtra and Karnataka lead in sales, while North India represents a major untapped market for future expansion."]
-        }
-      ],
-      impact: [
-        "Processed 32,047 orders with an overall 89.3% delivery success rate",
-        "Identified a potential ₹40-50 Lakhs in savings by optimizing return treatments",
-        "Streamlined inventory planning by identifying peak sales cycles (Jan-Apr)"
-      ],
-      dashboardUrl: "https://vrinda-store-analysis.vercel.app/",
-      engagementLink: "https://github.com/Ujjaval0/vrinda-store-analysis"
-    },
-
-
-    {
-      title: "Customer Shopping Behavior — Retail Analytics 2026",
-      category: "Data Analysis",
+      title: "Customer Shopping Behavior - Retail Analytics 2026",
+      category: "",
       domain: "Retail & Consumer Analytics",
-      tags: ['SQL', 'Python', 'Power BI', 'Data Visualization', 'Customer Segmentation', 'Business Intelligence'],
-      description: "Everyone has an opinion about what makes customers spend more. This project has data instead. Analyzed 3,900 customers, $233K in real transactions, and 19 behavioral variables across 4 product categories — to find out what actually drives retail revenue versus what most businesses assume.",
+      tags: ['SQL', 'Python', 'Power BI'],
+      description: "Retail teams spend heavily on two assumptions: that subscriptions build loyalty and that discounts drive volume. This business had 3,900 customers, $233K in real transactions, and 19 behavioral variables enough to test both assumptions properly. The question wasn't what customers were buying. It was why, and whether the tools the business was using to influence that behavior were actually working.",
       imageUrl: customerImg,
-      objective: [
-        "Analyze customer spending behavior across 4 categories and 6 shipping types.",
-        "Examine whether subscriptions and discounts actually increase purchase value.",
-        "Segment customers into New, Returning, and Loyal tiers based on purchase history.",
-        "Challenge common retail assumptions about gender spend, loyalty, and promo effectiveness."
-      ],
-      takeaways: [
+      customSections: [
         {
-          title: "Subscriptions & Loyalty",
-          items: [
-            "80% of customers (3,116 out of 3,900) are already Loyal buyers — this is a retention business, not an acquisition one.",
-            "Only 27.6% of repeat buyers are subscribed — the most valuable customers are the least monetized.",
-            "Subscriptions don't increase basket size — $59.49 avg for subscribers vs. $59.87 for non-subscribers."
+          title: "CORE BUSINESS PROBLEM",
+          content: [
+            <>Are subscriptions and discount programs genuinely lifting revenue — or are they expensive habits the data doesn't support? Which customer segments and product categories deserve more investment, and which are being over-resourced based on <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>assumptions rather than evidence?</u></>
           ]
         },
         {
-          title: "Discounts & Pricing",
-          items: [
-            "Discounts are hurting margin without lifting spend — promo users averaged $59.28 vs. $60.13 without promos.",
-            "Hat, Sneakers, and Coat are discounted on nearly every other sale — 50%, 49.7%, and 49.1% discount rates.",
-            "Customers who used discounts AND still beat the average spend represent a very small subset."
+          title: "APPROACH",
+          content: [
+            <ul style={{ listStyleType: 'disc', paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <li>Cleaned 3,900 transaction records across 4 product categories, 6 shipping types, and 3 loyalty tiers.</li>
+              <li>Built a single-page Power BI dashboard filterable by subscription status and gender. Kept it one page deliberately — the key patterns held across every cut of the data, so splitting by segment would have <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>added clicks without adding clarity.</u></li>
+            </ul>
           ]
         },
         {
-          title: "Revenue & Category",
-          items: [
-            "Clothing dominates at $104,264 — nearly 3x Footwear's $36,093.",
-            "The gender revenue gap ($157,890 male vs. $75,191 female) is purely a volume gap — avg spend per order is almost identical ($59.54 vs. $60.25).",
-            "Fall is the strongest season at $60,018 — Summer is the weakest at $55,777.",
-            "Young Adults lead all age groups in both revenue ($62K) and customer count (1,028)."
+          title: "WHAT THE DATA REVEALED",
+          content: [
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Subscriptions aren't working.</strong> 80% of customers are already Loyal — this is a retention business, not an acquisition one. Yet 72.4% of those loyal buyers are unsubscribed. Worse, the subscription program isn't even lifting spend: subscribers averaged $59.49 per order vs. $59.87 without. The program is <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>capturing people who would have spent anyway.</u>
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Discounts are a margin leak.</strong> Promo users averaged $59.28 vs. $60.13 without promos. Hat, Sneakers, and Coat carry 50%, 49.7%, and 49.1% discount rates respectively — and spend doesn't move. The business is giving away margin on its highest-volume SKUs with <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>zero revenue return.</u>
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>The gender gap is a volume problem, not a spend problem.</strong> Male revenue ($157,890) vs. female ($75,191) looks like a targeting failure until you check per-order spend: $59.54 vs. $60.25 — nearly identical. The gap closes by <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>acquiring more female customers,</u> not by changing pricing or product mix.
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Young Adults pull in both directions.</strong> Highest revenue ($62K) and highest customer count (1,028). Every other segment trails on at least one axis. Fall outperforms Summer by $4,241 in average revenue — the weakest point in the calendar with the most room to close.
+              </div>
+            </div>
+          ]
+        },
+        {
+          title: "RECOMMENDATION",
+          content: [
+            <p style={{ marginBottom: '12px', fontWeight: 600 }}>Three calls:</p>,
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>Stop discounting Hat, Sneakers, and Coat.</strong> Spend doesn't respond to it. The margin loss is confirmed, the revenue gain is not.</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>Convert loyal unsubscribed customers first.</strong> 72.4% of the most valuable customers aren't subscribed. That's the <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>highest-leverage monetization move</u> in the dataset — no new acquisition needed.</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>Close the Summer gap</strong> with targeted campaigns toward female and Young Adult segments. The spend behaviour is already there. The volume isn't.</span>
+              </div>
+            </div>
           ]
         }
-      ],
-      impact: [
-        "Analyzed 3,900 customers and $233K in transactions across 19 behavioral variables",
-        "Revealed that 80% of customers are already Loyal — shifting strategy from acquisition to monetization",
-        "Proved discounts reduce margin without lifting basket size, across 3 high-volume SKUs",
-        "Identified a $82,699 revenue gap between male and female segments driven entirely by volume, not spend"
       ],
       dashboardUrl: customerPdf,
       engagementLink: "https://github.com/Ujjaval0/Customer-Shopping-Behavior-Analysis"
@@ -201,6 +181,77 @@ function App() {
         "Scaled architecture to handle 10k trans/sec"
       ],
       engagementLink: "https://github.com/Ujjaval0/fraud-detection"
+    },
+
+
+    {
+      title: "Vrinda Store Analysis",
+      category: "",
+      domain: "Retail & E-commerce",
+      tags: ['Excel', 'Power Query', 'ETL'],
+      description: "Vrinda Store was running across 7 sales channels - Amazon, Myntra, Flipkart, Meesho, Ajio, Nalli, and others with no single view of where revenue was actually coming from, who was buying, and where orders were failing. 32,047 orders. One year. No consolidated picture.",
+      imageUrl: "https://raw.githubusercontent.com/ChhavikKapoor20/Vrinda-Store-Data-Analysis/main/VrindaStoreReport2023.png",
+      customSections: [
+        {
+          title: "CORE BUSINESS PROBLEM",
+          content: [
+            <>Which channels, customer segments, and geographies are driving revenue and where is money being left on the table through returns, cancellations, and <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>untargeted marketing?</u></>
+          ]
+        },
+        {
+          title: "APPROACH",
+          content: [
+            <ul style={{ listStyleType: 'disc', paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <li>Pulled and consolidated multi-channel order data using Excel Power Query. Cleaned return, cancellation, and delivery status fields across 32,047 records across 7 channels, 8 product categories, 3 age groups, and 12 months.</li>
+              <li>Built an interactive Excel dashboard filterable by month, channel, and category. Kept the layout to one view so leadership could <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>cross-filter segments without switching tabs.</u></li>
+            </ul>
+          ]
+        },
+        {
+          title: "WHAT THE DATA REVEALED",
+          content: [
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Revenue is concentrated in one segment.</strong> Female customers drive 64% of total revenue — ₹13.56 Cr. Adult women (30–50) are the single highest-spending demographic across every channel. The business is already a women's retail business <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>whether it's positioned that way or not.</u>
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Three channels carry the business.</strong> Amazon (35.5%), Myntra (23.4%), and Flipkart (21.6%) generate 80.5% of total revenue. The remaining four channels — Meesho, Ajio, Nalli, Others — split the remaining 19.5%. Channel diversification is a risk story, not a growth opportunity: losing any one of the top three is a <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>serious revenue event.</u>
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Sales peak in January–April and drop sharply after.</strong> Orders and revenue track together through March, then order volume falls faster than revenue — meaning the post-April customer is <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>higher value but harder to reach.</u> Summer is the inventory and campaign gap.
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Geography is uneven.</strong> Maharashtra (₹2.99M) and Karnataka (₹2.65M) lead. Uttar Pradesh sits third at ₹2.10M despite being one of India's largest consumer markets — <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>under-indexed relative to population size.</u>
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Returns and cancellations are a fixable margin problem.</strong> 92% delivery success rate sounds strong until you calculate the other 8%: 3% returned, 3% cancelled, 2% refunded across 32,047 orders. That's roughly 2,500+ failed orders — the <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>₹40–50 Lakh savings estimate is real</u> if return triggers are addressed by category.
+              </div>
+            </div>
+          ]
+        },
+        {
+          title: "RECOMMENDATION",
+          content: [
+            <p style={{ marginBottom: '12px', fontWeight: 600 }}>Three calls:</p>,
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>Double down on Adult women aged 30–50 on Amazon and Myntra.</strong> That's where revenue concentrates. Every campaign that isn't targeting this segment is <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>working against the grain of the data.</u></span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>Investigate return triggers on high-return categories before the next peak season.</strong> Jan–Apr is peak. Reducing the 3% return rate before that window directly recovers margin — <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>no new customers needed.</u></span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>Run a targeted push into Uttar Pradesh before Q1.</strong> It's the third-largest state by sales but significantly under-indexed for its population. The channel infrastructure already exists — this is a <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>reach problem, not a product problem.</u></span>
+              </div>
+            </div>
+          ]
+        }
+      ],
+      dashboardUrl: "https://vrinda-store-analysis.vercel.app/",
+      engagementLink: "https://github.com/Ujjaval0/vrinda-store-analysis"
     }
   ];
 

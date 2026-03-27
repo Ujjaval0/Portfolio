@@ -3,7 +3,7 @@ import './ContactSection.css';
 import gmailLogo from '../assets/Gmail_contact_section.png';
 import linkedinLogo from '../assets/icons8-linkedin-144.png';
 import githubLogo from '../assets/GitHub_Invertocat_Black.png';
-import discordLogo from '../assets/Discord-Symbol-Blurple.png';
+// import discordLogo from '../assets/Discord-Symbol-Blurple.png';
 import { Reveal } from './Reveal';
 
 const ContactSection: React.FC = () => {
@@ -27,10 +27,10 @@ const ContactSection: React.FC = () => {
                             <img src={githubLogo} alt="GitHub" className="contact-icon" />
                             <span className="contact-label">GitHub</span>
                         </a>
-                        <a href="#" className="contact-item">
+                        {/* <a href="#" className="contact-item">
                             <img src={discordLogo} alt="Discord" className="contact-icon" />
                             <span className="contact-label">Discord</span>
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </Reveal>
