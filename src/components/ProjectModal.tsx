@@ -21,7 +21,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 <div className="modal-scroll-area">
                     <div className="modal-header-grid">
                         <div className="modal-header-left">
-                            <div className="category-badge">{project.category}</div>
+                            {project.category && <div className="category-badge">{project.category}</div>}
                             <h2 className="modal-title">{project.title}</h2>
                             <div className="domain-info">
                                 <span className="domain-label">Domain/Function:</span>
@@ -57,30 +57,33 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                     </div>
 
                     <div className="details-section">
-                        <h2 className="details-header">Project Details</h2>
 
-                        <div className="detail-item">
-                            <h4 className="detail-subtitle">🎯 Objective:</h4>
-                            <ul className="detail-list">
-                                {project.objective.map((obj, i) => (
-                                    <li key={i}>{obj}</li>
+                        {project.objective && project.objective.length > 0 && (
+                            <div className="detail-item">
+                                <h4 className="detail-subtitle">🎯 Objective:</h4>
+                                <ul className="detail-list">
+                                    {project.objective.map((obj, i) => (
+                                        <li key={i}>{obj}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
+                        {project.takeaways && project.takeaways.length > 0 && (
+                            <div className="detail-item">
+                                <h4 className="detail-subtitle">📊 Key Insights:</h4>
+                                {project.takeaways.map((takeaway, i) => (
+                                    <div key={i} className="takeaway-group">
+                                        <h5 className="takeaway-title">🏆 {takeaway.title}:</h5>
+                                        <ul className="detail-list">
+                                            {takeaway.items.map((item, j) => (
+                                                <li key={j}>{item}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 ))}
-                            </ul>
-                        </div>
-
-                        <div className="detail-item">
-                            <h4 className="detail-subtitle">📊 Key Insights:</h4>
-                            {project.takeaways.map((takeaway, i) => (
-                                <div key={i} className="takeaway-group">
-                                    <h5 className="takeaway-title">🏆 {takeaway.title}:</h5>
-                                    <ul className="detail-list">
-                                        {takeaway.items.map((item, j) => (
-                                            <li key={j}>{item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
+                            </div>
+                        )}
 
                         {project.impact && project.impact.length > 0 && (
                             <div className="detail-item">
@@ -91,6 +94,21 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                                     ))}
                                 </ul>
                             </div>
+                        )}
+
+                        {project.customSections && project.customSections.length > 0 && (
+                            <>
+                                {project.customSections.map((section, i) => (
+                                    <div key={i} className="detail-item">
+                                        <h4 className="detail-subtitle">{section.title}</h4>
+                                        <div className="detail-text" style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '16px' }}>
+                                            {section.content.map((para, j) => (
+                                                <div key={j} style={{ marginBottom: '8px' }}>{para}</div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </>
                         )}
                     </div>
 

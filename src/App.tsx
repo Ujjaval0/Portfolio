@@ -23,49 +23,63 @@ function App() {
 
   const projects: ProjectData[] = [
     {
-      title: "The AI Economy — Data Report 2024-2030",
-      category: "PowerBI Project",
+      title: "The AI Economy — What the Data Actually Says (2024–2030)",
+      category: "",
       domain: "AI & Labour Economics",
       tags: ['Excel', 'Power BI', 'DAX'],
-      description: "Everyone has an opinion about AI. This project has data instead. Analyzed 500 startups, $10.7B in real funding deals, and 30,000 jobs across 8 industries worldwide — to find out what is actually happening versus what the headlines say.",
+      description: "Everyone is making decisions about AI — where to invest, what skills to build, which industries to bet on. But most of those decisions are driven by headlines, not data. This project started with one question: if you ignored the noise and looked only at real funding deals, actual startup outcomes, and verified job projections — what story would the numbers tell?",
       imageUrl: aiEconomyImg,
-      objective: [
-        "Analyze global startup performance across 8 industries and 5 regions.",
-        "Track $10.7B in real 2024-25 funding deals across 7 countries.",
-        "Identify which industries are growing and shrinking in the job market by 2030.",
-        "Challenge common assumptions about AI, money, and career safety with real data."
-      ],
-      takeaways: [
+      customSections: [
         {
-          title: "Startups & ROI",
-          items: [
-            "AI has the lowest capital efficiency of all 8 industries — $7.90 per $1 invested vs E-Commerce's $10.00.",
-            "76% of AI startups never exit — no IPO, no acquisition, despite all the hype.",
-            "All 5 global regions are within 2% of each other — startup funding is genuinely global now."
+          title: "CORE BUSINESS PROBLEM",
+          content: [
+            <>Is AI actually the best place to put capital? Which industries are creating jobs by 2030 and which are quietly bleeding them? And are the companies getting the most press the same ones getting the most money? Leadership teams needed answers <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>grounded in data, not opinion.</u></>
           ]
         },
         {
-          title: "Funding (2024-25)",
-          items: [
-            "India averages $745M per deal — nearly double USA's $403M.",
-            "60% of $10.7B went to non-AI companies — SpaceX, Byju's, Revolut led the list.",
-            "FinTech matched pure AI in funding within $10M — with zero media coverage."
+          title: "APPROACH",
+          content: [
+            <ul style={{ listStyleType: 'disc', paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <li>Cleaned and integrated <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>3 independent datasets</u> — 500 global startups, 25 real 2024–25 funding deals totalling $10.7B across 7 countries, and 30,000 job records across 8 industries.</li>
+              <li>Built a 3-page interactive Power BI report with 13 custom DAX measures, designed so any stakeholder — not just analysts — could <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>filter by region, industry, funding stage, or job trend</u> and reach their own conclusion.</li>
+            </ul>
           ]
         },
         {
-          title: "Job Market by 2030",
-          items: [
-            "Transportation loses 444,302 jobs — biggest decline of any industry.",
-            "IT gains 511,824 jobs — highest growth AND highest salary.",
-            "4,437 job titles already in the danger zone today — not in 2030, right now."
+          title: "WHAT THE DATA REVEALED",
+          content: [
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Startup Landscape:</strong> AI has the lowest capital efficiency of all 8 industries at <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>$7.90 returned per $1 invested</u>, behind E-Commerce ($10.00), HealthTech, Cybersecurity, and Gaming. 76% of AI startups never reach an IPO or acquisition. The most talked-about industry is quietly one of the least efficient bets in the dataset.
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Global Funding:</strong> 60% of the $10.7B tracked went to <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>non-AI companies</u> — SpaceX ($1.5B), Byju's ($1.2B), and Revolut ($800M) led the list. India averaged $745M per deal, nearly double the US average of $403M. FinTech matched pure AI in total funding within $10M — with almost no media attention.
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Job Market:</strong> Transportation is projected to lose 444,302 jobs by 2030. IT gains 511,824. The real story isn't "AI kills jobs" — it's that specific industries absorb the cost while others capture the growth. With 4,437 jobs in the danger zone versus 4,520 in the safe zone, the margin is <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>razor-thin and entirely industry-dependent.</u>
+              </div>
+            </div>
+          ]
+        },
+        {
+          title: "RECOMMENDATION",
+          content: [
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>For investors:</strong> Capital efficiency and exit rates matter more than category hype — FinTech and E-Commerce are the <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>quieter, better-returning bets</u> in this dataset.</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>For professionals:</strong> IT and Healthcare absorb job growth through 2030; Transportation and Manufacturing do not. <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>Build skills accordingly.</u></span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>For analysts:</strong> The funding narrative is global now — all 5 regions are within 2% of each other in startup count, meaning <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>no single geography dominates</u>.</span>
+              </div>
+            </div>
           ]
         }
-      ],
-      impact: [
-        "Analyzed 45,525 records across 3 datasets to surface insights that challenge mainstream AI narratives",
-        "Identified 23% efficiency gap between AI and E-Commerce in startup capital returns",
-        "Projected 444,302 job losses in Transportation vs 511,824 gains in IT by 2030",
-        "Built a 3-page interactive Power BI dashboard with 13 custom DAX measures"
       ],
       dashboardUrl: aiJobsPdf,
       reportUrl: "https://ai-jobs-impact-2024-2030.vercel.app/",
