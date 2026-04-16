@@ -301,6 +301,54 @@
     background: #f9fafb;
 }
 
+/* ── Mobile PDF Fallback ── */
+.pdf-mobile-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 48px 24px;
+    background: #f9fafb;
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.pdf-mobile-icon {
+    color: #9ca3af;
+}
+
+.pdf-mobile-text {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+    max-width: 260px;
+    line-height: 1.6;
+}
+
+.pdf-mobile-open-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    min-height: 48px;
+}
+
+.pdf-mobile-open-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
+}
+
 .dashboard-placeholder {
     width: 100%;
     aspect-ratio: 21 / 9;

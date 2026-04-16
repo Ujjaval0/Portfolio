@@ -5,6 +5,7 @@ import aiEconomyImg from './assets/The ai economy.png';
 import aiJobsPdf from './assets/Ai Jobs.pdf';
 import customerImg from './assets/Customer.png';
 import customerPdf from './assets/Customer Behavior.pdf';
+import sqlImg from './assets/sql.png';
 
 // Lazy load components for better performance
 const Sidebar = lazy(() => import('./components/Sidebar'));
@@ -151,37 +152,65 @@ function App() {
       dashboardUrl: customerPdf,
       engagementLink: "https://github.com/Ujjaval0/Customer-Shopping-Behavior-Analysis"
     },
-
-
     {
-      title: "Credit Card Fraud Detection",
-      category: "Data Science",
-      domain: "Finance",
-      tags: ['Python', 'PySpark', 'Scikit-learn', 'XGBoost'],
-      description: "A machine learning pipeline to detect fraudulent transactions in real-time, handling highly imbalanced datasets.",
-      imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800",
-      objective: [
-        "Minimize false positives to improve customer experience.",
-        "Detect fraudulent patterns in high-velocity transaction streams.",
-        "Implement a scalable solution using big data technologies."
-      ],
-      takeaways: [
+      title: "Sales Data Analysis - SQL",
+      category: "",
+      domain: "Retail & Sales",
+      tags: ['SQL', 'PostgreSQL', 'Window Functions', 'CTEs'],
+      description: "A PostgreSQL analysis project on a star-schema sales database (fact_sales, dim_products, dim_customers). Written to go beyond basic queries — built 4 analysis modules covering trends over time, cumulative sales tracking, year-over-year product performance, and customer/product segmentation.",
+      imageUrl: sqlImg,
+      customSections: [
         {
-          title: "Model Performance",
-          items: ["Achieved a Recall of 95% on fraudulent cases using XGBoost and SMOTE."]
+          title: "WHAT I ANALYSED",
+          content: [
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Trend Analysis</strong> — Sliced sales by Year, Month, and Year+Month using EXTRACT and DATE_TRUNC. Revealed which periods consistently drive volume vs. which quietly underperform.
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Cumulative Analysis</strong> — Built running total sales, a <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>3-month moving average</u>, month-over-month growth %, and LAG-based prior-month comparisons — all with CTEs to keep every query readable.
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Performance Analysis</strong> — For every product, compared current year sales against its own historical average AND prior year using PARTITION BY + LAG. Labelled results as Above Avg / Below Avg and Increasing / Decreasing automatically via CASE.
+              </div>
+              <div style={{ paddingLeft: '12px', borderLeft: '3px solid #3b82f6' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Data Segmentation</strong> — Grouped products into cost ranges (Below 100 → Above 1000) and customers into <u style={{ textDecorationColor: '#3b82f6', textUnderlineOffset: '2px', fontWeight: 600 }}>VIP, Regular, and New</u> tiers based on 12-month lifespan + $5000 spend threshold — using AGE() for precise tenure calculation.
+              </div>
+            </div>
+          ]
         },
         {
-          title: "Real-time Speed",
-          items: ["Integration with Kafka allowed for transaction scoring in under 50ms."]
+          title: "KEY SQL TECHNIQUES APPLIED",
+          content: [
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>Window Functions</strong> — SUM() OVER, AVG() OVER (ROWS BETWEEN 2 PRECEDING), LAG()</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>CTEs</strong> — Used throughout to make multi-step queries readable and reusable</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>CASE Segmentation</strong> — Dynamic labelling for product tiers and customer groups inline</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>Date Functions</strong> — DATE_TRUNC, EXTRACT, AGE, DATE_PART across all time dimensions</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <span style={{ color: '#3b82f6', marginRight: '8px' }}>▸</span>
+                <span><strong style={{ color: 'var(--text-primary)' }}>NULLIF + ROUND</strong> — Safe growth % calculation that avoids divide-by-zero errors</span>
+              </div>
+            </div>
+          ]
         }
       ],
-      impact: [
-        "Prevented $2M+ potential fraudulent losses",
-        "Reduced false positives by 18%",
-        "Scaled architecture to handle 10k trans/sec"
-      ],
-      engagementLink: "https://github.com/Ujjaval0/fraud-detection"
+      engagementLink: "https://github.com/Ujjaval0/sales-data-analysis-sql",
+      markdownUrl: "/sql-analysis.md"
     },
+
 
 
     {

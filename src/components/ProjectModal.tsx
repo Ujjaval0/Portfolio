@@ -1,15 +1,46 @@
-import React from 'react';
-import { X, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, ExternalLink, FileText } from 'lucide-react';
 import type { ProjectData } from '../types';
 import './ProjectModal.css';
+import SqlMarkdownViewer from './SqlMarkdownViewer';
 
 interface ProjectModalProps {
     project: ProjectData | null;
     onClose: () => void;
 }
 
+/** Detect mobile / tablet — iframes for PDF don't work on iOS/Android */
+function useIsMobile(): boolean {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const check = () =>
+            setIsMobile(
+                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                    navigator.userAgent
+                ) || window.innerWidth < 768
+            );
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
+    return isMobile;
+}
+
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+    const isMobile = useIsMobile();
     if (!project) return null;
+
+    const isPdf =
+        project.dashboardUrl?.toLowerCase().endsWith('.pdf') ?? false;
+
+    /** On mobile, Google Docs viewer renders PDFs inline reliably */
+    const pdfSrc = isPdf && isMobile
+        ? `https://docs.google.com/viewer?url=${encodeURIComponent(
+            window.location.origin + project.dashboardUrl
+        )}&embedded=true`
+        : project.dashboardUrl
+            ? `${project.dashboardUrl}#zoom=page-width&view=FitH`
+            : '';
 
     return (
         <div className="modal-overlay" onClick={onClose}>
@@ -112,46 +143,74 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                         )}
                     </div>
 
+                    {/* ── PDF / Dashboard Section ── */}
                     {project.dashboardUrl && (
                         <div className="dashboard-section">
-                            {(() => {
-                                const isPdf = project.dashboardUrl!.toLowerCase().endsWith('.pdf');
-                                return (
-                                    <div className="dashboard-section-header">
-                                        <div>
-                                            <h2 className="details-header" style={{ marginBottom: '4px' }}>
-                                                {isPdf ? '📊 Power BI Report — Full PDF' : '🌐 Live Interactive Report'}
-                                            </h2>
-                                            <p className="dashboard-subtitle">
-                                                {isPdf
-                                                    ? 'Scroll through all 3 dashboard pages below'
-                                                    : 'Explore the full report directly below'}
-                                            </p>
-                                        </div>
-                                        <a
-                                            href={project.dashboardUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="report-link-btn"
-                                            style={{ flexShrink: 0 }}
-                                        >
-                                            <ExternalLink size={14} />
-                                            {isPdf ? 'Open PDF' : 'Open Report'}
-                                        </a>
-                                    </div>
-                                );
-                            })()}
-                            <div className="pdf-embed-wrapper">
-                                <iframe
-                                    title={`${project.title} — Report`}
-                                    src={`${project.dashboardUrl}#zoom=page-width&view=FitH`}
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 'none', display: 'block' }}
-                                    allowFullScreen={true}
-                                />
+                            <div className="dashboard-section-header">
+                                <div>
+                                    <h2 className="details-header" style={{ marginBottom: '4px' }}>
+                                        {isPdf ? '📊 Power BI Report — Full PDF' : '🌐 Live Interactive Report'}
+                                    </h2>
+                                    <p className="dashboard-subtitle">
+                                        {isPdf
+                                            ? isMobile
+                                                ? 'Tap "Open PDF" to view the full report'
+                                                : 'Scroll through all dashboard pages below'
+                                            : 'Explore the full report directly below'}
+                                    </p>
+                                </div>
+                                <a
+                                    href={project.dashboardUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="report-link-btn"
+                                    style={{ flexShrink: 0 }}
+                                >
+                                    <ExternalLink size={14} />
+                                    {isPdf ? 'Open PDF' : 'Open Report'}
+                                </a>
                             </div>
+
+                            {/* Mobile PDF → prominent open button instead of broken iframe */}
+                            {isPdf && isMobile ? (
+                                <div className="pdf-mobile-fallback">
+                                    <div className="pdf-mobile-icon">
+                                        <FileText size={48} strokeWidth={1.2} />
+                                    </div>
+                                    <p className="pdf-mobile-text">
+                                        PDF previews aren't supported in mobile browsers.
+                                    </p>
+                                    <a
+                                        href={project.dashboardUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-mobile-open-btn"
+                                    >
+                                        <ExternalLink size={16} />
+                                        Open PDF Report
+                                    </a>
+                                </div>
+                            ) : (
+                                <div className="pdf-embed-wrapper">
+                                    <iframe
+                                        title={`${project.title} — Report`}
+                                        src={pdfSrc}
+                                        width="100%"
+                                        height="100%"
+                                        style={{ border: 'none', display: 'block' }}
+                                        allowFullScreen={true}
+                                    />
+                                </div>
+                            )}
                         </div>
+                    )}
+
+                    {/* ── SQL Markdown Viewer ── */}
+                    {project.markdownUrl && (
+                        <SqlMarkdownViewer
+                            markdownUrl={project.markdownUrl}
+                            title="SQL Scripts — Full Code"
+                        />
                     )}
 
                 </div>

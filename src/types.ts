@@ -14,6 +14,7 @@ export interface ProjectData {
     customSections?: { title: string; content: ReactNode[] }[];
     dashboardUrl?: string;
     reportUrl?: string;
+    markdownUrl?: string;
     engagementLink?: string;
 }
 
